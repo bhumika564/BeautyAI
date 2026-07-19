@@ -73,6 +73,7 @@ def navbar(active_page="Home"):
             width: auto;
             max-width: 220px;
             object-fit: contain;
+            transform: scale(1.8);
         }}
         
         /* Navigation Links */
