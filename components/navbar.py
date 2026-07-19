@@ -191,6 +191,8 @@ def navbar(active_page="Home"):
             </a>
         </div>
     </div>
+    """
+    
     # Page Title Mapping
     page_titles = {
         "Home": "Intelligent Beauty Curation",
