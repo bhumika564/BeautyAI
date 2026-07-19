@@ -218,7 +218,7 @@ def navbar(active_page="Home"):
     <div class="full-bleed-banner" style="margin-top: 0 !important; background-color: #000000; color: #FFFFFF; text-align: center; padding: 10px 0; font-size: 11px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase;">
         <span style="color: #FF9C71;">Data-Driven</span> Recommendations &bull; <span style="color: #FF9C71;">Expert</span> Beauty Intelligence
     </div>
-    <div class="full-bleed-banner" style="background-color: #E0D7D0; padding: 70px 20px; text-align: center; margin-bottom: 40px; border-bottom: 1px solid #D8D2C9;">
+    <div class="full-bleed-banner" style="background-color: var(--hero-bg); padding: 70px 20px; text-align: center; margin-bottom: 40px; border-bottom: 1px solid #D8D2C9;">
         <h1 style="font-family: var(--font-heading); font-size: 54px; color: #2C3E50; font-weight: 400; letter-spacing: 0.06em; margin: 0;">{header_title}</h1>
     </div>
     """

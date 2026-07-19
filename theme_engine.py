@@ -10,11 +10,14 @@ def load_saved_theme():
         with open(CONFIG_PATH, "r") as f:
             return json.load(f)
     return {
-        "theme_font_primary": "Inter",
-        "theme_font_heading": "Lora",
+        "theme_font_primary": "Avenir Next",
+        "theme_font_heading": "Avenir Next",
         "theme_color_primary": "#000000",
         "theme_color_bg": "#FFFFFF",
-        "theme_color_text": "#333333"
+        "theme_color_text": "#333333",
+        "theme_color_hero_bg": "#E0D7D0",
+        "theme_color_action_bg": "#FFFFFF",
+        "theme_color_card_bg": "#E0D7D0"
     }
 
 def save_theme(theme_dict):
@@ -39,6 +42,9 @@ def inject_live_theme():
     color_primary = st.session_state.theme_color_primary
     color_bg = st.session_state.theme_color_bg
     color_text = st.session_state.theme_color_text
+    color_hero_bg = st.session_state.theme_color_hero_bg
+    color_action_bg = st.session_state.theme_color_action_bg
+    color_card_bg = st.session_state.theme_color_card_bg
     
     primary_font_url = primary_font.replace(" ", "+")
     heading_font_url = heading_font.replace(" ", "+")
@@ -71,6 +77,9 @@ def inject_live_theme():
             --primary: {color_primary};
             --bg: {color_bg};
             --text: {color_text};
+            --hero-bg: {color_hero_bg};
+            --action-bg: {color_action_bg};
+            --card: {color_card_bg};
         }}
     </style>
     """

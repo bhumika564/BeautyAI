@@ -33,6 +33,11 @@ def render_appearance_studio():
             st.color_picker("App Background Color", key="theme_color_bg")
             st.color_picker("Main Text Color", key="theme_color_text")
             
+            st.markdown("**Components Background**")
+            st.color_picker("Hero Section Background", key="theme_color_hero_bg")
+            st.color_picker("Action Buttons Background", key="theme_color_action_bg")
+            st.color_picker("Info & Feature Cards Background", key="theme_color_card_bg")
+            
         st.markdown(
             """
             <div style="margin-top: 32px; padding: 16px; background: var(--card); border: 1px solid var(--border);">
@@ -54,6 +59,9 @@ def render_appearance_studio():
                 "theme_color_primary": st.session_state.theme_color_primary,
                 "theme_color_bg": st.session_state.theme_color_bg,
                 "theme_color_text": st.session_state.theme_color_text,
+                "theme_color_hero_bg": st.session_state.theme_color_hero_bg,
+                "theme_color_action_bg": st.session_state.theme_color_action_bg,
+                "theme_color_card_bg": st.session_state.theme_color_card_bg
             }
             save_theme(theme_dict)
             st.success("✨ Theme successfully saved!")

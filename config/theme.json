@@ -3,5 +3,8 @@
     "theme_font_heading": "Avenir Next",
     "theme_color_primary": "#000000",
     "theme_color_bg": "#FFFFFF",
-    "theme_color_text": "#333333"
+    "theme_color_text": "#333333",
+    "theme_color_hero_bg": "#E0D7D0",
+    "theme_color_action_bg": "#FFFFFF",
+    "theme_color_card_bg": "#E0D7D0"
 }
