@@ -32,3 +32,24 @@ def navbar(active_page="Home"):
             st.switch_page("pages/sentiment.py")
             
     st.markdown('</div>', unsafe_allow_html=True)
+    
+    # Page Title Mapping
+    page_titles = {
+        "Home": "Intelligent Beauty Curation",
+        "Products": "Explore AI Recommendations",
+        "Reviews": "Sentiment Analysis",
+        "Analytics": "Market Analytics",
+        "About": "The BeautyAI Platform"
+    }
+    header_title = page_titles.get(active_page, "Intelligent Beauty Curation")
+    
+    # 1. Thin Black Banner
+    # 2. Large Beige Page Header
+    st.markdown(f"""
+    <div style="background-color: #000000; color: #FFFFFF; text-align: center; padding: 10px 0; font-size: 11px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase;">
+        <span style="color: #FF9C71;">Data-Driven</span> Recommendations &bull; <span style="color: #FF9C71;">Expert</span> Beauty Intelligence
+    </div>
+    <div style="background-color: var(--card); padding: 70px 20px; text-align: center; margin-bottom: 40px; border-bottom: 1px solid var(--border);">
+        <h1 style="font-family: 'Lora', serif; font-size: 52px; color: var(--text); font-weight: 400; letter-spacing: 0.05em; margin: 0;">{header_title}</h1>
+    </div>
+    """, unsafe_allow_html=True)
