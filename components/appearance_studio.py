@@ -56,3 +56,4 @@ def render_appearance_studio():
                 "theme_color_text": st.session_state.theme_color_text,
             }
             save_theme(theme_dict)
+            st.toast("Theme saved successfully!", icon="✅")
