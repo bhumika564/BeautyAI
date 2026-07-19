@@ -3,7 +3,7 @@ from utils import load_css
 
 st.set_page_config(
     page_title="BeautyAI",
-    page_icon="💄",
+    page_icon="assets/logo.png",
     layout="wide",
     initial_sidebar_state="collapsed"
 )
