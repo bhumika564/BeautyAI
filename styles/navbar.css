@@ -1,5 +1,5 @@
-.navbar-wrapper { margin-bottom: 24px; display: block; border-bottom: 1px solid var(--border); padding-bottom: 16px; background: var(--card); padding-top: 16px;}
-.logo { font-size: 28px; font-weight: 700; display: flex; align-items: center; gap: 8px; color: var(--text); letter-spacing: -0.5px; }
+.navbar-wrapper { margin-bottom: 32px; display: block; border-bottom: 1px solid var(--border); padding-bottom: 16px; background: var(--card); padding-top: 16px;}
+.logo { font-family: 'Lora', serif; font-size: 28px; font-weight: 400; display: flex; align-items: center; gap: 8px; color: var(--text); letter-spacing: 0.05em; }
 
 /* Mid Nav */
 div[data-testid="column"]:nth-child(2) button,
@@ -7,7 +7,7 @@ div[data-testid="column"]:nth-child(3) button,
 div[data-testid="column"]:nth-child(4) button,
 div[data-testid="column"]:nth-child(5) button,
 div[data-testid="column"]:nth-child(6) button {
-    background: transparent !important; border: none !important; color: var(--text) !important; font-weight: 500 !important; font-size: 14px !important; text-transform: uppercase !important; border-radius: 0 !important; height: 40px !important;
+    background: transparent !important; border: none !important; color: var(--text) !important; font-weight: 400 !important; font-size: 13px !important; text-transform: uppercase !important; letter-spacing: 1px !important; border-radius: 0 !important; height: 40px !important;
     box-shadow: none !important;
 }
 div[data-testid="column"]:nth-child(2) button:hover,
@@ -15,12 +15,12 @@ div[data-testid="column"]:nth-child(3) button:hover,
 div[data-testid="column"]:nth-child(4) button:hover,
 div[data-testid="column"]:nth-child(5) button:hover,
 div[data-testid="column"]:nth-child(6) button:hover {
-    color: var(--primary) !important; background: transparent !important;
+    color: var(--text-light) !important; background: transparent !important;
 }
 
 /* Right CTA */
-div[data-testid="column"]:nth-child(7) button { background: var(--text) !important; color: #FFF !important; border-radius: 4px !important; font-size: 13px !important; font-weight: 600 !important; text-transform: uppercase !important; height: 40px !important; }
-div[data-testid="column"]:nth-child(7) button:hover { background: #000 !important; }
+div[data-testid="column"]:nth-child(7) button { background: var(--text) !important; color: #FFF !important; border-radius: 0 !important; font-size: 12px !important; font-weight: 500 !important; text-transform: uppercase !important; letter-spacing: 1px !important; height: 40px !important; }
+div[data-testid="column"]:nth-child(7) button:hover { background: transparent !important; color: var(--text) !important; border: 1px solid var(--text) !important;}
 
 /* Active navigation tab */
-.nav-active { color: var(--primary) !important; border-bottom: 2px solid var(--primary); font-weight: 600; display: flex; align-items: center; justify-content: center; font-size: 14px; text-transform: uppercase; height: 40px; }
+.nav-active { color: var(--text) !important; border-bottom: 1px solid var(--text); font-weight: 500; display: flex; align-items: center; justify-content: center; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; height: 40px; }

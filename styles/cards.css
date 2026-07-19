@@ -1,43 +1,40 @@
 /* E-Commerce Base Cards */
 .stats-card, .feature-card, .chart-card {
     background: var(--card);
-    padding: 24px;
+    padding: 32px;
     border-radius: var(--radius-card);
-    box-shadow: var(--shadow);
+    box-shadow: none;
     border: 1px solid var(--border);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
     height: 100%;
 }
-.stats-card:hover, .feature-card:hover { box-shadow: var(--shadow-hover); }
 
-/* Product Tiles (E-Commerce Style) */
+/* Product Tiles */
 .product-card {
-    background: var(--card);
+    background: var(--bg);
     border-radius: var(--radius-card);
-    padding: 12px;
+    padding: 16px;
     border: 1px solid var(--border);
     box-shadow: none;
-    transition: box-shadow 0.2s ease;
     margin-bottom: 16px;
     position: relative;
 }
-.product-card:hover { box-shadow: var(--shadow-hover); }
 
 .product-image {
     width: 100%;
-    height: 220px;
+    height: 240px;
     object-fit: contain;
-    margin-bottom: 12px;
-    background: #ffffff;
+    margin-bottom: 16px;
+    background: var(--bg);
 }
 
 .product-title {
-    font-size: 14px;
-    font-weight: 500;
+    font-family: 'Lora', serif;
+    font-size: 15px;
+    font-weight: 400;
     color: var(--text);
-    margin-bottom: 6px;
+    margin-bottom: 8px;
     line-height: 1.4;
-    height: 40px;
+    height: 42px;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
@@ -45,34 +42,29 @@
     -webkit-box-orient: vertical;
 }
 
-/* Fake Price */
-.product-price { font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 8px; }
+/* Price */
+.product-price { font-size: 15px; font-weight: 500; color: var(--text); margin-bottom: 12px; }
 .product-mrp { font-size: 13px; color: var(--text-light); text-decoration: line-through; margin-left: 6px; font-weight: 400; }
-.product-discount { color: #00897B; font-size: 13px; font-weight: 600; margin-left: 6px; }
+.product-discount { display: none; } /* Hide tacky discounts for luxury feel */
 
-.product-rating { font-size: 13px; color: #F59E0B; margin-bottom: 12px; display: flex; align-items: center; gap: 4px; }
-.rating-count { color: var(--text-light); font-size: 12px; }
+.product-rating { font-size: 12px; color: var(--text); margin-bottom: 16px; display: flex; align-items: center; gap: 4px; }
+.rating-count { color: var(--text-light); font-size: 11px; }
 
 /* Category Badge */
-.category-badge { position: absolute; top: 12px; left: 12px; background: rgba(255,255,255,0.9); color: var(--text); border: 1px solid var(--border); padding: 4px 8px; border-radius: 2px; font-size: 10px; font-weight: 600; text-transform: uppercase; }
+.category-badge { position: absolute; top: 16px; left: 16px; background: var(--card); color: var(--text); border: 1px solid var(--border); padding: 4px 10px; font-size: 9px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;}
 
 /* Search Bar Container */
-.search-container { background: var(--card); padding: 8px 16px; border-radius: var(--radius-card); border: 1px solid var(--border); margin-bottom: 32px; }
+.search-container { background: var(--card); padding: 16px 24px; border: 1px solid var(--border); margin-bottom: 40px; }
 
 /* Recommendation Results */
-.recommend-card { background: var(--card); border-radius: var(--radius-card); padding: 16px; border: 1px solid var(--border); box-shadow: none; transition: box-shadow 0.2s ease; height: 100%; display: flex; flex-direction: column; }
-.recommend-card:hover { box-shadow: var(--shadow-hover); }
+.recommend-card { background: var(--bg); border: 1px solid var(--border); padding: 24px; box-shadow: none; height: 100%; display: flex; flex-direction: column; }
 
-.ai-badge { background: #FDF2F8; color: var(--primary); padding: 6px 12px; border-radius: var(--radius-card); font-size: 12px; font-weight: 600; display: inline-block; margin-bottom: 16px; border: 1px solid #FCE7F3; }
+.ai-badge { background: var(--card); color: var(--text); padding: 8px 16px; font-size: 11px; font-weight: 600; display: inline-block; margin-bottom: 24px; border: 1px solid var(--border); text-transform: uppercase; letter-spacing: 1px;}
 
-.why-recommended { background: #F9FAFB; padding: 12px; border-radius: var(--radius-card); font-size: 13px; color: var(--text-light); line-height: 1.6; flex-grow: 1; border: 1px dashed var(--border); }
-.why-recommended-title { font-weight: 600; color: var(--text); margin-bottom: 4px; }
+.why-recommended { background: var(--card); padding: 16px; font-size: 13px; color: var(--text-light); line-height: 1.6; flex-grow: 1; border: 1px solid var(--border); }
+.why-recommended-title { font-family: 'Lora', serif; font-size: 15px; color: var(--text); margin-bottom: 8px; }
 
-.stats-icon { font-size: 32px; margin-bottom: 16px; width: 64px; height: 64px; display: flex; align-items: center; justify-content: center; border-radius: 20px; }
-.products-card .stats-icon { background: #FFF4F2; }
-.reviews-card .stats-icon { background: #F5F3FF; }
-.accuracy-card .stats-icon { background: #F0FDF4; }
-.nlp-card .stats-icon { background: #FFFBEB; }
-.stats-content h2 { font-size: 40px; font-weight: 700; margin-bottom: 4px; color: var(--text); line-height: 1.1; }
-.stats-content h4 { font-size: 16px; font-weight: 500; margin-bottom: 8px; color: var(--text-light); }
-.stats-content p { font-size: 14px; color: var(--text-light); line-height: 1.4; margin: 0; }
+.stats-icon { font-size: 24px; margin-bottom: 24px; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; background: var(--bg); border: 1px solid var(--border);}
+.stats-content h2 { font-family: 'Inter', sans-serif; font-size: 36px; font-weight: 300; margin-bottom: 8px; color: var(--text); }
+.stats-content h4 { font-family: 'Lora', serif; font-size: 16px; font-weight: 400; margin-bottom: 8px; color: var(--text); letter-spacing: 0.05em; }
+.stats-content p { font-size: 14px; color: var(--text-light); line-height: 1.6; margin: 0; }
