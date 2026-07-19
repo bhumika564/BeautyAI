@@ -61,8 +61,8 @@ def hero():
             st.markdown(
                 """
                 <div class="users-text">
-                Trusted by <strong>AI & Data Science</strong><br>
-                enthusiasts
+                Trusted by <strong>millions</strong><br>
+                of customers
                 </div>
                 """,
                 unsafe_allow_html=True,
