@@ -170,7 +170,7 @@ def navbar(active_page="Home"):
 
     <div class="myntra-header">
         <div class="myntra-logo">
-            <a href="/home" target="_self">
+            <a href="home" target="_self">
                 <img src="data:image/png;base64,{logo_b64}" alt="Logo">
             </a>
         </div>
