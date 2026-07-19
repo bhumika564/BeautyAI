@@ -88,8 +88,6 @@ To use it, click on the **✨ Appearance Studio (Live Theme Editor)** expander l
 | :---: | :---: |
 | <img src="screenshots/sentiment.png" width="400"> | <img src="screenshots/analytics.png" width="400"> |
 
-*(Note: Replace placeholders in the `/screenshots/` folder with actual app captures)*
-
 ---
 
 ## 🏗 System Architecture
