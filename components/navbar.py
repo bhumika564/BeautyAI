@@ -15,16 +15,25 @@ def navbar(active_page="Home"):
             display: none !important;
         }}
         
-        /* Remove default padding from ALL possible Streamlit main containers */
+        /* Remove default vertical padding but add 4% horizontal padding for breathing room */
         .block-container,
         [data-testid="stMainBlockContainer"],
         [data-testid="stAppViewBlockContainer"],
         .main {{
             padding-top: 80px !important;
             margin-top: 0 !important;
-            padding-left: 0 !important;
-            padding-right: 0 !important;
+            padding-left: 4% !important;
+            padding-right: 4% !important;
             max-width: 100% !important;
+            overflow-x: hidden !important;
+        }}
+        
+        /* CSS hack to force banners to break out of the 4% padding and span the full screen */
+        .full-bleed-banner {{
+            margin-left: -50vw !important;
+            margin-right: -50vw !important;
+            padding-left: 50vw !important;
+            padding-right: 50vw !important;
         }}
         
         /* Force remove margins from markdown element containers at the top */
@@ -34,12 +43,6 @@ def navbar(active_page="Home"):
             margin-bottom: 0 !important;
             padding-top: 0 !important;
             padding-bottom: 0 !important;
-        }}
-        
-        /* Add breathing room to the actual page content (everything after the CSS and Navbar injections) */
-        div[data-testid="stVerticalBlock"] > div.element-container:nth-child(n+3) {{
-            padding-left: 6% !important;
-            padding-right: 6% !important;
         }}
         
         /* The Fixed Myntra Header */
@@ -213,10 +216,10 @@ def navbar(active_page="Home"):
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&display=swap');
     </style>
-    <div style="margin-top: 0 !important; background-color: #000000; color: #FFFFFF; text-align: center; padding: 10px 0; font-size: 11px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase;">
+    <div class="full-bleed-banner" style="margin-top: 0 !important; background-color: #000000; color: #FFFFFF; text-align: center; padding: 10px 0; font-size: 11px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase;">
         <span style="color: #FF9C71;">Data-Driven</span> Recommendations &bull; <span style="color: #FF9C71;">Expert</span> Beauty Intelligence
     </div>
-    <div style="background-color: #E8E2D9; padding: 70px 20px; text-align: center; margin-bottom: 40px; border-bottom: 1px solid #D8D2C9;">
+    <div class="full-bleed-banner" style="background-color: #E8E2D9; padding: 70px 20px; text-align: center; margin-bottom: 40px; border-bottom: 1px solid #D8D2C9;">
         <h1 style="font-family: 'Playfair Display', serif; font-size: 54px; color: #2C3E50; font-weight: 400; letter-spacing: 0.06em; margin: 0;">{header_title}</h1>
     </div>
     """
