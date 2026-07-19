@@ -5,10 +5,8 @@
     line-height: 1.2;
     letter-spacing: 0.05em;
     margin-bottom: 24px;
-    color: #000000 !important;
 }
 .hero-title span {
-    color: #000000 !important;
     font-style: italic;
 }
 .hero-badge {
@@ -25,7 +23,6 @@
     font-size: 16px;
     font-weight: 300;
     line-height: 1.8;
-    color: #000000 !important;
     max-width: 550px;
     margin-bottom: 40px;
 }

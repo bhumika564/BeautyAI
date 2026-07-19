@@ -12,20 +12,20 @@ def hero():
 
         st.markdown(
             f"""
-            <h1 class="hero-title">
+            <div class="hero-title">
                 <span style="color: {theme_color_text} !important;">Discover Your Perfect<br></span>
                 <span style="color: {theme_color_primary} !important;">Beauty Products</span>
-            </h1>
+            </div>
             """,
             unsafe_allow_html=True,
         )
 
         st.markdown(
             f"""
-            <p class="hero-subtitle" style="color: {theme_color_text} !important;">
+            <div class="hero-subtitle" style="color: {theme_color_text} !important;">
             Get personalized product recommendations, analyze customer sentiments,
             and explore insights from 100K+ Amazon Beauty reviews.
-            </p>
+            </div>
             """,
             unsafe_allow_html=True,
         )
