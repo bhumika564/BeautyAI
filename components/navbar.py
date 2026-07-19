@@ -69,11 +69,10 @@ def navbar(active_page="Home"):
             align-items: center;
         }}
         .myntra-logo img {{
-            height: 65px;
+            height: 50px;
             width: auto;
             max-width: 220px;
             object-fit: contain;
-            transform: scale(1.8);
         }}
         
         /* Navigation Links */
