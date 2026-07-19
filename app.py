@@ -13,7 +13,7 @@ load_css()
 # Set up the multi-page router without the default sidebar
 pg = st.navigation(
     [
-        st.Page("pages/home.py", title="Home", url_path="home", default=True),
+        st.Page("pages/home.py", title="Home", default=True),
         st.Page("pages/recommendation.py", title="Recommendation Engine"),
         st.Page("pages/sentiment.py", title="Sentiment Analysis"),
         st.Page("pages/analytics.py", title="Market Analytics"),

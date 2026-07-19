@@ -170,12 +170,12 @@ def navbar(active_page="Home"):
 
     <div class="myntra-header">
         <div class="myntra-logo">
-            <a href="home" target="_self">
+            <a href="./" target="_self">
                 <img src="data:image/png;base64,{logo_b64}" alt="Logo">
             </a>
         </div>
         <div class="myntra-nav">
-            <a href="home" target="_self" class="{is_active('Home')}">HOME</a>
+            <a href="./" target="_self" class="{is_active('Home')}">HOME</a>
             <a href="recommendation" target="_self" class="{is_active('Products')}">PRODUCTS</a>
             <a href="sentiment" target="_self" class="{is_active('Reviews')}">REVIEWS</a>
             <a href="analytics" target="_self" class="{is_active('Analytics')}">ANALYTICS</a>
