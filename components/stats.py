@@ -43,7 +43,6 @@ def stats():
         with col:
             st.markdown(f"""
                 <div class="stats-card {item['class']}">
-                    <div class="stats-icon">{item['icon']}</div>
                     <div class="stats-content">
                         <h2>{item['value']}</h2>
                         <h4>{item['title']}</h4>

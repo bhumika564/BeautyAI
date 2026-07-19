@@ -26,9 +26,6 @@ def feature_card(item):
         f"""
         <div class="feature-card">
             <div class="feature-left">
-                <div class="feature-icon {item['bg']}">
-                    {item['icon']}
-                </div>
                 <div>
                     <div class="feature-title">
                         {item['title']}
