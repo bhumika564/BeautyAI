@@ -1,5 +1,6 @@
 import streamlit as st
-from theme_engine import save_theme
+from theme_engine import save_theme, reset_developer_theme, get_default_theme
+from components.local_storage import local_storage
 
 # A curated list of elegant Google Fonts for the beauty industry
 GOOGLE_FONTS = [
@@ -8,8 +9,53 @@ GOOGLE_FONTS = [
     "Nunito", "Cinzel", "Cormorant Garamond", "Outfit", "Manrope"
 ]
 
+def color_picker_with_undo(label, key):
+    """Wraps st.color_picker to include an Undo (↺) button with a history stack."""
+    history_key = f"{key}_history"
+    
+    # Initialize history stack with the current value
+    if history_key not in st.session_state:
+        st.session_state[history_key] = [st.session_state[key]]
+        
+    def on_color_change():
+        new_val = st.session_state[key]
+        if st.session_state[history_key][-1] != new_val:
+            st.session_state[history_key].append(new_val)
+            
+    col_picker, col_undo = st.columns([0.85, 0.15])
+    
+    with col_picker:
+        st.color_picker(label, key=key, on_change=on_color_change)
+        
+    with col_undo:
+        st.markdown("<div style='margin-top: 28px;'></div>", unsafe_allow_html=True)
+        can_undo = len(st.session_state[history_key]) > 1
+        if st.button("↺", key=f"undo_{key}", help="Revert to previous color", disabled=not can_undo, use_container_width=True):
+            st.session_state[history_key].pop()  # Remove current
+            st.session_state[key] = st.session_state[history_key][-1]  # Set to previous
+            st.rerun()
+
+def get_current_theme_dict():
+    return {
+        "theme_font_primary": st.session_state.theme_font_primary,
+        "theme_font_heading": st.session_state.theme_font_heading,
+        "theme_color_primary": st.session_state.theme_color_primary,
+        "theme_color_bg": st.session_state.theme_color_bg,
+        "theme_color_text": st.session_state.theme_color_text,
+        "theme_color_hero_bg": st.session_state.theme_color_hero_bg,
+        "theme_color_hero_text": st.session_state.theme_color_hero_text,
+        "theme_color_action_bg": st.session_state.theme_color_action_bg,
+        "theme_color_action_text": st.session_state.theme_color_action_text,
+        "theme_color_card_bg": st.session_state.theme_color_card_bg,
+        "theme_color_card_text": st.session_state.theme_color_card_text
+    }
+
 def render_appearance_studio():
     """Renders the Appearance Studio inside a Streamlit expander on the main page."""
+    
+    # We call local_storage for saving (with a dummy key to avoid conflict)
+    # The read happens in utils.py early on.
+    
     with st.expander("✨ Appearance Studio (Live Theme Editor)", expanded=False):
         st.markdown(
             """
@@ -29,17 +75,17 @@ def render_appearance_studio():
             
         with col2:
             st.markdown("**Color Palette**")
-            st.color_picker("Primary Accent Color", key="theme_color_primary")
-            st.color_picker("App Background Color", key="theme_color_bg")
-            st.color_picker("Main Text Color", key="theme_color_text")
+            color_picker_with_undo("Primary Accent Color", key="theme_color_primary")
+            color_picker_with_undo("App Background Color", key="theme_color_bg")
+            color_picker_with_undo("Main Text Color", key="theme_color_text")
             
             st.markdown("**Components Background & Font Color**")
-            st.color_picker("Hero Section Background", key="theme_color_hero_bg")
-            st.color_picker("Hero Section Font Color", key="theme_color_hero_text")
-            st.color_picker("Action Buttons Background", key="theme_color_action_bg")
-            st.color_picker("Action Buttons Font Color", key="theme_color_action_text")
-            st.color_picker("Info & Feature Cards Background", key="theme_color_card_bg")
-            st.color_picker("Info & Feature Cards Font Color", key="theme_color_card_text")
+            color_picker_with_undo("Hero Section Background", key="theme_color_hero_bg")
+            color_picker_with_undo("Hero Section Font Color", key="theme_color_hero_text")
+            color_picker_with_undo("Action Buttons Background", key="theme_color_action_bg")
+            color_picker_with_undo("Action Buttons Font Color", key="theme_color_action_text")
+            color_picker_with_undo("Info & Feature Cards Background", key="theme_color_card_bg")
+            color_picker_with_undo("Info & Feature Cards Font Color", key="theme_color_card_text")
             
         st.markdown(
             """
@@ -55,19 +101,27 @@ def render_appearance_studio():
         
         st.markdown("---")
         
-        if st.button("Apply & Save Changes", type="primary", use_container_width=True):
-            theme_dict = {
-                "theme_font_primary": st.session_state.theme_font_primary,
-                "theme_font_heading": st.session_state.theme_font_heading,
-                "theme_color_primary": st.session_state.theme_color_primary,
-                "theme_color_bg": st.session_state.theme_color_bg,
-                "theme_color_text": st.session_state.theme_color_text,
-                "theme_color_hero_bg": st.session_state.theme_color_hero_bg,
-                "theme_color_hero_text": st.session_state.theme_color_hero_text,
-                "theme_color_action_bg": st.session_state.theme_color_action_bg,
-                "theme_color_action_text": st.session_state.theme_color_action_text,
-                "theme_color_card_bg": st.session_state.theme_color_card_bg,
-                "theme_color_card_text": st.session_state.theme_color_card_text
-            }
-            save_theme(theme_dict)
-            st.success("✨ Theme successfully saved!")
+        btn_col1, btn_col2, btn_col3 = st.columns(3)
+        
+        with btn_col1:
+            if st.button("Restore Original Theme", use_container_width=True):
+                defaults = get_default_theme()
+                for key, val in defaults.items():
+                    st.session_state[key] = val
+                    if f"{key}_history" in st.session_state:
+                        st.session_state[f"{key}_history"] = [val]
+                # We also clear local storage so the user's defaults take over
+                local_storage(action="clear", key="ls_clear_action")
+                st.rerun()
+                
+        with btn_col2:
+            if st.button("Save Theme Changes", type="primary", use_container_width=True):
+                theme_dict = get_current_theme_dict()
+                # Save to local storage for the user
+                local_storage(action="write", data=theme_dict, key="ls_write_action")
+                st.success("✨ Theme successfully saved to browser!")
+                
+        with btn_col3:
+            if st.button("Developer Reset (Global)", help="Resets the global server-side theme", use_container_width=True):
+                reset_developer_theme()
+                st.success("✅ Global developer theme reset!")
