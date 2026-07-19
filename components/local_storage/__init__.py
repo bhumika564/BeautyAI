@@ -3,7 +3,7 @@ import os
 
 _component_func = components.declare_component(
     "local_storage",
-    path=os.path.dirname(os.path.abspath(__file__))
+    path=os.path.dirname(os.path.realpath(__file__))
 )
 
 def local_storage(action="read", data=None, key=None):

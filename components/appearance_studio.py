@@ -105,16 +105,20 @@ def render_appearance_studio():
         
         btn_col1, btn_col2, btn_col3 = st.columns(3)
         
+        def handle_restore():
+            defaults = get_default_theme()
+            for key, val in defaults.items():
+                st.session_state[key] = val
+                if f"{key}_history" in st.session_state:
+                    st.session_state[f"{key}_history"] = [val]
+            st.session_state["trigger_ls_clear"] = True
+            
+        def handle_dev_reset():
+            reset_developer_theme()
+            st.session_state["trigger_dev_reset_msg"] = True
+            
         with btn_col1:
-            if st.button("Restore Original Theme", use_container_width=True):
-                defaults = get_default_theme()
-                for key, val in defaults.items():
-                    st.session_state[key] = val
-                    if f"{key}_history" in st.session_state:
-                        st.session_state[f"{key}_history"] = [val]
-                # We also clear local storage so the user's defaults take over
-                local_storage(action="clear", key="ls_clear_action")
-                st.rerun()
+            st.button("Restore Original Theme", use_container_width=True, on_click=handle_restore)
                 
         with btn_col2:
             if st.button("Save Theme Changes", type="primary", use_container_width=True):
@@ -124,6 +128,14 @@ def render_appearance_studio():
                 st.success("✨ Theme successfully saved to browser!")
                 
         with btn_col3:
-            if st.button("Developer Reset (Global)", help="Resets the global server-side theme", use_container_width=True):
-                reset_developer_theme()
-                st.success("✅ Global developer theme reset!")
+            st.button("Developer Reset (Global)", help="Resets the global server-side theme", use_container_width=True, on_click=handle_dev_reset)
+            
+        # Handle deferred triggers from callbacks safely
+        if st.session_state.get("trigger_ls_clear"):
+            local_storage(action="clear", key="ls_clear_action")
+            st.session_state["trigger_ls_clear"] = False
+            st.success("✨ Original theme restored!")
+            
+        if st.session_state.get("trigger_dev_reset_msg"):
+            st.success("✅ Global developer theme reset!")
+            st.session_state["trigger_dev_reset_msg"] = False
