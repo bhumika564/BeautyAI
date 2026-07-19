@@ -48,3 +48,21 @@ button[kind="tertiary"]:hover {
     height: 40px; 
     text-transform: capitalize; 
 }
+
+/* Hero Banner Classes */
+.hero-banner-bg {
+    background-color: var(--hero-bg) !important;
+    padding: 70px 20px;
+    text-align: center;
+    margin-bottom: 40px;
+    border-bottom: 1px solid var(--border);
+}
+
+.hero-banner-title {
+    font-family: var(--font-heading) !important;
+    font-size: 54px !important;
+    color: var(--hero-text) !important;
+    font-weight: 400 !important;
+    letter-spacing: 0.06em !important;
+    margin: 0 !important;
+}

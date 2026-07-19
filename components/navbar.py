@@ -213,23 +213,6 @@ def navbar(active_page="Home"):
     header_title = page_titles.get(active_page, "Intelligent Beauty Curation")
 
     html_content += f"""
-    <style>
-        .hero-banner-bg {{
-            background-color: var(--hero-bg) !important;
-            padding: 70px 20px;
-            text-align: center;
-            margin-bottom: 40px;
-            border-bottom: 1px solid #D8D2C9;
-        }}
-        .hero-banner-title {{
-            font-family: var(--font-heading) !important;
-            font-size: 54px !important;
-            color: var(--hero-text) !important;
-            font-weight: 400 !important;
-            letter-spacing: 0.06em !important;
-            margin: 0 !important;
-        }}
-    </style>
     <div class="full-bleed-banner" style="margin-top: 0 !important; background-color: #000000; color: #FFFFFF; text-align: center; padding: 10px 0; font-size: 11px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase;">
         <span style="color: #FF9C71;">Data-Driven</span> Recommendations &bull; <span style="color: #FF9C71;">Expert</span> Beauty Intelligence
     </div>
