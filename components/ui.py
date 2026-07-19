@@ -45,7 +45,7 @@ def product_card(image, title, rating, reviews, category):
     st.markdown(f"""
     <div class="product-card">
         <div class="category-badge">{category}</div>
-        <img src="data:image/jpeg;base64,{img_b64}" class="product-image">
+        <img src="data:image/png;base64,{img_b64}" class="product-image">
         <div class="product-title">{title}</div>
         <div class="product-price">
             ${price:.2f} <span class="product-mrp">${mrp:.2f}</span> <span class="product-discount">{discount}% Off</span>
@@ -65,7 +65,7 @@ def selected_product_card(image, title, rating="4.6", reviews="2,143", category=
     
     st.markdown(f"""
     <div class="selected-card">
-        <img src="data:image/jpeg;base64,{img_b64}" class="selected-image">
+        <img src="data:image/png;base64,{img_b64}" class="selected-image">
         <div>
             <div class="category-badge" style="position:static; display:inline-block; margin-bottom:12px;">{category}</div>
             <div class="selected-title">{title}</div>
@@ -86,7 +86,7 @@ def recommendation_card(image, title, ai_score, category="Skin Care"):
     
     st.markdown(f"""
     <div class="recommend-card">
-        <img src="data:image/jpeg;base64,{img_b64}" class="product-image" style="height: 180px;">
+        <img src="data:image/png;base64,{img_b64}" class="product-image" style="height: 180px;">
         <div class="product-title">
             {title}
         </div>

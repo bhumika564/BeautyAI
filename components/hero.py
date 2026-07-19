@@ -69,7 +69,7 @@ def hero():
         st.markdown(f"""
         <div class="hero-product-card">
             <div class="hero-product-badge">Recommended Today</div>
-            <img src="data:image/jpeg;base64,{featured_img}" alt="Featured Product">
+            <img src="data:image/png;base64,{featured_img}" alt="Featured Product">
             <div class="hero-product-title">derma e Soothing Skin Treatment</div>
             <div class="hero-product-stars"><span style="color:#6D6D6D; font-size:14px; font-weight:400;">4.8 (2,314)</span></div>
             <div class="hero-product-score">AI Match Score 96%</div>
