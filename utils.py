@@ -80,10 +80,15 @@ def render_layout(page_function, active_page="Home"):
     from components.chatbot import render_chatbot
     from theme_engine import inject_live_theme
     from components.appearance_studio import render_appearance_studio
-    from components.local_storage import local_storage
+    import json
     
-    # 1. Read client-side local storage (runs async, returns None on first cycle)
-    ls_val = local_storage(action="read", key="ls_reader")
+    # 1. Read client-side theme from URL (100% native, no custom components to break)
+    ls_val = None
+    if "theme" in st.query_params:
+        try:
+            ls_val = json.loads(st.query_params["theme"])
+        except:
+            pass
     
     # 2. Inject Dynamic Theme Variables First
     inject_live_theme(ls_val)
