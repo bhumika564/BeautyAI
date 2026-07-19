@@ -47,7 +47,7 @@ def render_appearance_studio():
         
         st.markdown("---")
         
-        if st.button("💾 Apply & Save Changes", type="primary", use_container_width=True):
+        if st.button("Apply & Save Changes", type="primary", use_container_width=True):
             theme_dict = {
                 "theme_font_primary": st.session_state.theme_font_primary,
                 "theme_font_heading": st.session_state.theme_font_heading,
@@ -56,4 +56,3 @@ def render_appearance_studio():
                 "theme_color_text": st.session_state.theme_color_text,
             }
             save_theme(theme_dict)
-            st.success("✨ Theme successfully saved! These changes are now permanent.")
