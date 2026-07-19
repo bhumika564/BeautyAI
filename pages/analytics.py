@@ -13,7 +13,7 @@ def load_analytics_data():
         'product_id', 'product_title', 'review_date', 
         'review_body', 'review_headline'
     ]
-    clean_df = pd.read_parquet("data/processed/amazon_beauty_cleaned.parquet", columns=cols_to_load)
+    clean_df = pd.read_parquet("data/processed/amazon_beauty_sampled.parquet", columns=cols_to_load)
     sentiment_df = pd.read_parquet("data/processed/amazon_sentiment.parquet", columns=['sentiment'])
     return clean_df, sentiment_df
 
