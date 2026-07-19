@@ -48,7 +48,7 @@ Finding the right beauty product among millions of options can be overwhelming. 
 
 ## 🎥 Demo
 
-> *Add your deployed application URL here after deployment.*
+> **🔥 Try it live!** [BeautyAI Web Application](https://beauty-ai-bhumika.streamlit.app/)
 
 ### Professional Screenshots
 
