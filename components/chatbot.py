@@ -40,7 +40,7 @@ def render_chatbot():
     div[data-testid="stPopover"] {{
         position: fixed !important;
         bottom: 30px !important;
-        right: 30px !important;
+        left: 30px !important;
         z-index: 99999 !important;
         width: 64px !important;
         height: 64px !important;
