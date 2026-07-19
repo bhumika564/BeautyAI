@@ -107,21 +107,21 @@ def about_content():
     # SECTION 7 - DEVELOPER
     st.markdown("""
 <div class="chart-card" style="text-align: center; padding: 48px 24px;">
-    <div style="font-size: 48px; margin-bottom: 16px;"><span class="icon">👩‍💻</span></div>
-    <h2 style="margin-bottom: 8px; color: var(--text);">Bhumika Sharma</h2>
-    <h4 style="margin-bottom: 24px; color: var(--primary);">AI & Data Science Student</h4>
-    
-    <div style="display: flex; gap: 12px; justify-content: center; margin-bottom: 32px;">
-        <span style="background: #f1f5f9; padding: 6px 16px; border-radius: 999px; font-size: 14px; color: #475569; font-weight: 500;">Full Stack Development</span>
-        <span style="background: #f1f5f9; padding: 6px 16px; border-radius: 999px; font-size: 14px; color: #475569; font-weight: 500;">Data Analytics</span>
-        <span style="background: #f1f5f9; padding: 6px 16px; border-radius: 999px; font-size: 14px; color: #475569; font-weight: 500;">Artificial Intelligence</span>
-    </div>
-    
-    <div style="display: flex; justify-content: center; gap: 16px;">
-        <a href="https://github.com" target="_blank" style="background: var(--text); color: var(--card); padding: 12px 32px; border-radius: 999px; font-weight: 600; text-decoration: none; transition: opacity 0.2s;">GitHub</a>
-        <a href="https://linkedin.com" target="_blank" style="background: #0077b5; color: var(--card); padding: 12px 32px; border-radius: 999px; font-weight: 600; text-decoration: none; transition: opacity 0.2s;">LinkedIn</a>
-        <a href="#" style="background: var(--primary); color: var(--card); padding: 12px 32px; border-radius: 999px; font-weight: 600; text-decoration: none; transition: opacity 0.2s;">Resume</a>
-    </div>
+<div style="font-size: 48px; margin-bottom: 16px;"><span class="icon">👩‍💻</span></div>
+<h2 style="margin-bottom: 8px; color: var(--text);">Bhumika Sharma</h2>
+<h4 style="margin-bottom: 24px; color: var(--primary);">AI & Data Science Student</h4>
+
+<div style="display: flex; gap: 12px; justify-content: center; margin-bottom: 32px;">
+<span style="background: #f1f5f9; padding: 6px 16px; border-radius: 999px; font-size: 14px; color: #475569; font-weight: 500;">Full Stack Development</span>
+<span style="background: #f1f5f9; padding: 6px 16px; border-radius: 999px; font-size: 14px; color: #475569; font-weight: 500;">Data Analytics</span>
+<span style="background: #f1f5f9; padding: 6px 16px; border-radius: 999px; font-size: 14px; color: #475569; font-weight: 500;">Artificial Intelligence</span>
+</div>
+
+<div style="display: flex; justify-content: center; gap: 16px;">
+<a href="https://github.com" target="_blank" style="background: var(--text); color: var(--card); padding: 12px 32px; border-radius: 999px; font-weight: 600; text-decoration: none; transition: opacity 0.2s;">GitHub</a>
+<a href="https://linkedin.com" target="_blank" style="background: #0077b5; color: var(--card); padding: 12px 32px; border-radius: 999px; font-weight: 600; text-decoration: none; transition: opacity 0.2s;">LinkedIn</a>
+<a href="#" style="background: var(--primary); color: var(--card); padding: 12px 32px; border-radius: 999px; font-weight: 600; text-decoration: none; transition: opacity 0.2s;">Resume</a>
+</div>
 </div>
 """, unsafe_allow_html=True)
 
