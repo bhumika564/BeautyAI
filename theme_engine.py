@@ -43,17 +43,31 @@ def inject_live_theme():
     primary_font_url = primary_font.replace(" ", "+")
     heading_font_url = heading_font.replace(" ", "+")
     
-    font_import = f"""
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family={primary_font_url}:wght@300;400;500;600&family={heading_font_url}:ital,wght@0,400;0,500;0,600;1,400&display=swap');
-    </style>
-    """
+    font_import = ""
+    if primary_font != "Avenir Next" and heading_font != "Avenir Next":
+        font_import = f"""
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family={primary_font_url}:wght@300;400;500;600&family={heading_font_url}:ital,wght@0,400;0,500;0,600;1,400&display=swap');
+        </style>
+        """
+    elif primary_font != "Avenir Next":
+        font_import = f"""
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family={primary_font_url}:wght@300;400;500;600&display=swap');
+        </style>
+        """
+    elif heading_font != "Avenir Next":
+        font_import = f"""
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family={heading_font_url}:ital,wght@0,400;0,500;0,600;1,400&display=swap');
+        </style>
+        """
     
     css_vars = f"""
     <style>
         :root {{
-            --font-primary: '{primary_font}', sans-serif;
-            --font-heading: '{heading_font}', serif;
+            --font-primary: '{primary_font}', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            --font-heading: '{heading_font}', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             --primary: {color_primary};
             --bg: {color_bg};
             --text: {color_text};

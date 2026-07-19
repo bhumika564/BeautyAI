@@ -3,7 +3,7 @@ from theme_engine import save_theme
 
 # A curated list of elegant Google Fonts for the beauty industry
 GOOGLE_FONTS = [
-    "Inter", "Lora", "Playfair Display", "Montserrat", "Roboto",
+    "Avenir Next", "Inter", "Lora", "Playfair Display", "Montserrat", "Roboto",
     "Open Sans", "Lato", "Poppins", "Oswald", "Raleway",
     "Nunito", "Cinzel", "Cormorant Garamond", "Outfit", "Manrope"
 ]
