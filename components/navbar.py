@@ -9,7 +9,7 @@ def navbar(active_page="Home"):
     from utils import get_image_base64
     logo_b64 = get_image_base64("assets/logo.png")
     with cols[0]:
-        st.markdown(f'<div class="logo" style="margin-top:-8px;"><img src="data:image/png;base64,{logo_b64}" style="height:56px; object-fit:contain;"></div>', unsafe_allow_html=True)
+        st.markdown(f'<div class="logo" style="margin-top:-24px;"><img src="data:image/png;base64,{logo_b64}" style="height:96px; object-fit:contain;"></div>', unsafe_allow_html=True)
         
     nav_items = [
         ("Home", "pages/home.py"),
