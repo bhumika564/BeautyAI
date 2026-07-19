@@ -6,7 +6,7 @@ def recommendation_content():
     st.markdown("""
     <div class="page-header">
         <div class="page-badge">
-            <span class="icon">🤖</span> AI Powered
+            AI Powered
         </div>
         <h1>
             Smart Product Recommendation
@@ -63,7 +63,7 @@ def recommendation_content():
                     st.markdown(f"""
                     <div class="summary-strip">
                         <div style="color: var(--text); font-weight: 600; font-size: 16px;">
-                            <span class="icon">🤖</span> AI found {len(recs_df)} similar products
+                            AI found {len(recs_df)} similar products
                         </div>
                         <div style="color: var(--primary); font-weight: 700; font-size: 18px;">
                             Average Match: {avg_match}%

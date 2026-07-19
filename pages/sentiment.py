@@ -5,7 +5,7 @@ import string
 def get_sentiment_ui(sentiment):
     if sentiment.lower() == "positive":
         return {
-            "emoji": "😊",
+            "emoji": "",
             "title": "Positive",
             "color": "#34C759",
             "insight": "Customers expressed strong satisfaction and appreciated the product quality."
@@ -29,7 +29,7 @@ def sentiment_content():
     st.markdown("""
     <div class="page-header">
         <div class="page-badge">
-            <span class="icon">😊</span> AI Powered
+            AI Powered
         </div>
         <h1>
             AI Review Analyzer
@@ -52,7 +52,7 @@ def sentiment_content():
     # We use columns to center the button slightly or keep it full width
     cols = st.columns([1, 2, 1])
     with cols[1]:
-        analyze = st.button("✨ Analyze Review", use_container_width=True)
+        analyze = st.button("Analyze Review", use_container_width=True)
         
     if analyze and review:
         with st.spinner("Analyzing sentiment..."):
@@ -86,10 +86,10 @@ def sentiment_content():
                 # Insights
                 st.markdown(f"""
                 <div style="margin-top: 32px; background: var(--card); padding: 24px; border-radius: var(--radius); border: 1px solid var(--border);">
-                    <h4 style="color: var(--text); margin-bottom: 12px;"><span class="icon">🔑</span> Extracted Keywords</h4>
+                    <h4 style="color: var(--text); margin-bottom: 12px;">Extracted Keywords</h4>
                     <p style="color: var(--primary); font-weight: 600; font-size: 18px;">{keyword_str}</p>
                     <hr style="border:1px solid var(--border); margin: 24px 0;">
-                    <h4 style="color: var(--text); margin-bottom: 12px;"><span class="icon">🧠</span> AI Insight</h4>
+                    <h4 style="color: var(--text); margin-bottom: 12px;">AI Insight</h4>
                     <p style="color: var(--text-light); font-size: 16px; line-height: 1.6;">{ui_config['insight']}</p>
                 </div>
                 """, unsafe_allow_html=True)

@@ -57,7 +57,7 @@ def render_footer():
     st.markdown("""
     <hr style="border-color: #E5E7EB; margin-top: 40px;">
     <center style="color: #777; font-size: 14px; margin-bottom: 20px;">
-    Made with ❤️ by <b>Bhumika Sharma</b><br>
+    Made with by <b>Bhumika Sharma</b><br>
     Python • Streamlit • NLP • Scikit-Learn
     </center>
     """, unsafe_allow_html=True)

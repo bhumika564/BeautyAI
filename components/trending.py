@@ -10,7 +10,7 @@ def trending():
         """
         <div class="section-header" style="margin-bottom: 0;">
             <div>
-                <h2>🔥 Trending Beauty Picks</h2>
+                <h2>Trending Beauty Picks</h2>
                 <p>Most loved products by our community</p>
             </div>
         </div>

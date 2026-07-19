@@ -51,7 +51,7 @@ def product_card(image, title, rating, reviews, category):
             ${price:.2f} <span class="product-mrp">${mrp:.2f}</span> <span class="product-discount">{discount}% Off</span>
         </div>
         <div class="product-rating">
-            ⭐⭐⭐⭐⭐ <span class="rating-count">({reviews})</span>
+            <span class="rating-count">({reviews})</span>
         </div>
     </div>
     """, unsafe_allow_html=True)
@@ -69,7 +69,7 @@ def selected_product_card(image, title, rating="4.6", reviews="2,143", category=
         <div>
             <div class="category-badge" style="position:static; display:inline-block; margin-bottom:12px;">{category}</div>
             <div class="selected-title">{title}</div>
-            <div class="product-rating" style="margin-bottom:8px;">⭐ {rating} <span class="rating-count">({reviews} Reviews)</span></div>
+            <div class="product-rating" style="margin-bottom:8px;">{rating} <span class="rating-count">({reviews} Reviews)</span></div>
             <div class="product-price" style="font-size:24px;">${price:.2f}</div>
         </div>
     </div>
@@ -94,10 +94,10 @@ def recommendation_card(image, title, ai_score, category="Skin Care"):
             ${price:.2f} <span class="product-mrp">${mrp:.2f}</span> <span class="product-discount" style="font-size:11px;">{discount}% Off</span>
         </div>
         <div class="product-rating" style="margin-bottom: 12px; font-size: 12px;">
-            ⭐⭐⭐⭐⭐ <span class="rating-count">Top Match</span>
+            <span class="rating-count">Top Match</span>
         </div>
         <div class="ai-badge">
-            <span class="icon">🤖</span> AI Match {ai_score}%
+            AI Match {ai_score}%
         </div>
         <div class="why-recommended">
             <div class="why-recommended-title">Why Recommended?</div>

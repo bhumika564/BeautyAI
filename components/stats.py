@@ -2,28 +2,28 @@ import streamlit as st
 
 stats_data = [
     {
-        "icon": "<span class='icon'>📦</span>",
+        "icon": "",
         "value": "56K+",
         "title": "Products",
         "desc": "Curated beauty products",
         "class": "products-card"
     },
     {
-        "icon": "<span class='icon'>📄</span>",
+        "icon": "",
         "value": "100K+",
         "title": "Reviews",
         "desc": "Real customer reviews",
         "class": "reviews-card"
     },
     {
-        "icon": "<span class='icon'>🎯</span>",
+        "icon": "",
         "value": "88.66%",
         "title": "Accuracy",
         "desc": "Model accuracy rate",
         "class": "accuracy-card"
     },
     {
-        "icon": "<span class='icon'>✨</span>",
+        "icon": "",
         "value": "NLP",
         "title": "Powered",
         "desc": "Advanced AI technology",

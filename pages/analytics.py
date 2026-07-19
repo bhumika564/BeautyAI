@@ -28,7 +28,7 @@ def analytics_content():
     st.markdown("""
     <div class="page-header">
         <div class="page-badge">
-        <span class="icon">📊</span> Data Analytics
+        Data Analytics
         </div>
         <h1>Beauty Analytics Dashboard</h1>
         <p style="color: var(--text-light); font-size: 18px; max-width: 600px; margin: 0 auto;">
@@ -74,10 +74,10 @@ def analytics_content():
         avg_rating = 4.2
         
     stats_data = [
-        {"icon": "<span class='icon'>📄</span>", "value": f"{total_reviews//1000}K+" if total_reviews > 1000 else str(total_reviews), "title": "Reviews", "desc": "Analyzed records", "class": "reviews-card"},
-        {"icon": "<span class='icon'>📦</span>", "value": f"{unique_products//1000}K+" if unique_products > 1000 else str(unique_products), "title": "Products", "desc": "Unique items", "class": "products-card"},
-        {"icon": "<span class='icon'>⭐</span>", "value": f"{avg_rating:.1f}", "title": "Avg Rating", "desc": "Across platform", "class": "accuracy-card"},
-        {"icon": "<span class='icon'>🎯</span>", "value": "88.6%", "title": "ML Accuracy", "desc": "Sentiment precision", "class": "nlp-card"}
+        {"icon": "", "value": f"{total_reviews//1000}K+" if total_reviews > 1000 else str(total_reviews), "title": "Reviews", "desc": "Analyzed records", "class": "reviews-card"},
+        {"icon": "", "value": f"{unique_products//1000}K+" if unique_products > 1000 else str(unique_products), "title": "Products", "desc": "Unique items", "class": "products-card"},
+        {"icon": "", "value": f"{avg_rating:.1f}", "title": "Avg Rating", "desc": "Across platform", "class": "accuracy-card"},
+        {"icon": "", "value": "88.6%", "title": "ML Accuracy", "desc": "Sentiment precision", "class": "nlp-card"}
     ]
     
     cols = st.columns([1, 0.08, 1, 0.08, 1, 0.08, 1])
@@ -103,7 +103,7 @@ def analytics_content():
     
     with chart_col1:
         st.markdown('<div class="chart-card">', unsafe_allow_html=True)
-        st.markdown("<h3 style='margin-bottom:16px;'><span class='icon'>⭐</span> Rating Distribution</h3>", unsafe_allow_html=True)
+        st.markdown("<h3 style='margin-bottom:16px;'>Rating Distribution</h3>", unsafe_allow_html=True)
         rating_counts = filtered_df['star_rating'].value_counts().reset_index()
         rating_counts.columns = ['Rating', 'Count']
         rating_counts = rating_counts.sort_values('Rating')
@@ -115,7 +115,7 @@ def analytics_content():
         
     with chart_col2:
         st.markdown('<div class="chart-card">', unsafe_allow_html=True)
-        st.markdown("<h3 style='margin-bottom:16px;'><span class='icon'>😊</span> Sentiment Distribution</h3>", unsafe_allow_html=True)
+        st.markdown("<h3 style='margin-bottom:16px;'>Sentiment Distribution</h3>", unsafe_allow_html=True)
         # Using sentiment_df for sentiment distribution
         sentiment_counts = sentiment_df['sentiment'].value_counts().reset_index()
         sentiment_counts.columns = ['Sentiment', 'Count']
@@ -128,7 +128,7 @@ def analytics_content():
         
     # --- TIMELINE ---
     st.markdown('<div class="chart-card">', unsafe_allow_html=True)
-    st.markdown("<h3 style='margin-bottom:16px;'><span class='icon'>📈</span> Reviews Over Time</h3>", unsafe_allow_html=True)
+    st.markdown("<h3 style='margin-bottom:16px;'>Reviews Over Time</h3>", unsafe_allow_html=True)
     
     if 'review_date' in filtered_df.columns:
         filtered_df['date'] = pd.to_datetime(filtered_df['review_date'], errors='coerce')
@@ -142,7 +142,7 @@ def analytics_content():
     
     # --- WORD CLOUD ---
     st.markdown('<div class="chart-card">', unsafe_allow_html=True)
-    st.markdown("<h3 style='margin-bottom:16px;'><span class='icon'>☁</span> Most Common Words</h3>", unsafe_allow_html=True)
+    st.markdown("<h3 style='margin-bottom:16px;'>Most Common Words</h3>", unsafe_allow_html=True)
     if not filtered_df.empty and 'review_body' in filtered_df.columns:
         text = " ".join(filtered_df['review_body'].dropna().head(1000).astype(str).tolist())
         if text:
@@ -151,7 +151,7 @@ def analytics_content():
     st.markdown('</div>', unsafe_allow_html=True)
     
     # --- TOP PRODUCTS ---
-    st.markdown("<br><h2 style='margin-bottom: 24px;'><span class='icon'>🔥</span> Top Products</h2>", unsafe_allow_html=True)
+    st.markdown("<br><h2 style='margin-bottom: 24px;'>Top Products</h2>", unsafe_allow_html=True)
     top_products = filtered_df['product_title'].value_counts().head(4).index.tolist()
     
     cols = st.columns([1, 0.08, 1, 0.08, 1, 0.08, 1])
@@ -176,7 +176,7 @@ def analytics_content():
             
     # --- SEARCH & DOWNLOAD ---
     st.markdown("<hr style='border:1px solid var(--border); margin: 40px 0;'>", unsafe_allow_html=True)
-    st.markdown("<h3 style='margin-bottom:16px;'><span class='icon'>📝</span> Recent Customer Reviews</h3>", unsafe_allow_html=True)
+    st.markdown("<h3 style='margin-bottom:16px;'>Recent Customer Reviews</h3>", unsafe_allow_html=True)
     
     search_query = st.text_input("", placeholder="Search Reviews...", label_visibility="collapsed")
     display_df = filtered_df[['product_title', 'star_rating', 'review_headline', 'review_body']].head(50)

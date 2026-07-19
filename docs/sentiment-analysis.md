@@ -98,7 +98,7 @@ When a user submits a review:
 
 **Example 1:**
 > **Input Review:** "This moisturizer is amazing and keeps my skin hydrated."
-> **Prediction:** Positive ✅
+> **Prediction:** Positive 
 
 **Example 2:**
 > **Input Review:** "The product caused irritation and had an unpleasant smell."

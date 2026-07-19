@@ -17,7 +17,7 @@ def get_bot_response(user_input):
         return "Here are the top-rated sunscreens in our dataset:\n• Beauty of Joseon Relief Sun : Rice + Probiotics\n• Isntree Hyaluronic Acid Watery Sun Gel\n• EltaMD UV Clear Broad-Spectrum SPF 46"
         
     else:
-        return "I'm your BeautyAI Assistant! 💄 I can recommend products for **dry skin**, **acne**, or **sun protection**. \n\nFor more advanced searches, head over to the **Recommendations** page!"
+        return "I'm your BeautyAI Assistant! I can recommend products for **dry skin**, **acne**, or **sun protection**. \n\nFor more advanced searches, head over to the **Recommendations** page!"
 
 @st.cache_data
 def get_chatbot_icon_b64():

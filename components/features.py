@@ -2,19 +2,19 @@ import streamlit as st
 
 features_data = [
     {
-        "icon": "<span class='icon'>🔍</span>",
+        "icon": "",
         "title": "Smart Recommendations",
         "desc": "Find similar beauty products using machine learning.",
         "bg": "pink"
     },
     {
-        "icon": "<span class='icon'>😊</span>",
+        "icon": "",
         "title": "Review Sentiment Analysis",
         "desc": "Analyze customer reviews using advanced NLP.",
         "bg": "yellow"
     },
     {
-        "icon": "<span class='icon'>📊</span>",
+        "icon": "",
         "title": "Analytics Dashboard",
         "desc": "Explore insights, trends & patterns from 100K+ reviews.",
         "bg": "purple"
@@ -51,8 +51,7 @@ def features():
         """
         <div class="section-heading">
             <div class="section-badge">
-                <span class="icon">✨</span>
-            </div>
+                </div>
             <h2>What You Can Do</h2>
             <p>
             Explore powerful features to make smarter beauty choices.

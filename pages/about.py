@@ -6,7 +6,7 @@ def about_content():
     st.markdown("""
     <div class="page-header" style="margin-bottom: 24px;">
         <div class="page-badge">
-        <span class="icon">💖</span> About BeautyAI
+        About BeautyAI
         </div>
         <h1>AI-Powered Beauty Recommendation Platform</h1>
     </div>
@@ -22,12 +22,12 @@ def about_content():
     """, unsafe_allow_html=True)
     
     # BONUS SECTION - ACHIEVEMENTS
-    st.markdown("<h2 style='text-align: center; margin-bottom: 24px;'><span class='icon'>🏆</span> Project Achievements</h2>", unsafe_allow_html=True)
+    st.markdown("<h2 style='text-align: center; margin-bottom: 24px;'>Project Achievements</h2>", unsafe_allow_html=True)
     cols = st.columns([1, 0.08, 1, 0.08, 1])
     achievements = [
-        {"icon": "<span class='icon'>📈</span>", "title": "100K+ Reviews Processed", "desc": "Cleaned and vectorized"},
-        {"icon": "<span class='icon'>🎯</span>", "title": "88.66% Sentiment Accuracy", "desc": "Logistic Regression Model"},
-        {"icon": "<span class='icon'>🛍️</span>", "title": "56K+ Products", "desc": "Analyzed and recommended"}
+        {"icon": "", "title": "100K+ Reviews Processed", "desc": "Cleaned and vectorized"},
+        {"icon": "", "title": "88.66% Sentiment Accuracy", "desc": "Logistic Regression Model"},
+        {"icon": "", "title": "56K+ Products", "desc": "Analyzed and recommended"}
     ]
     for i, item in enumerate(achievements):
         with cols[i*2]:
@@ -42,12 +42,12 @@ def about_content():
     st.markdown("<br><hr style='border:1px solid var(--border); margin: 32px 0;'><br>", unsafe_allow_html=True)
     
     # SECTION 3 - KEY FEATURES
-    st.markdown("<h2 style='text-align: center; margin-bottom: 24px;'><span class='icon'>✨</span> Key Features</h2>", unsafe_allow_html=True)
+    st.markdown("<h2 style='text-align: center; margin-bottom: 24px;'>Key Features</h2>", unsafe_allow_html=True)
     f_cols = st.columns([1, 0.08, 1, 0.08, 1])
     features = [
-        {"icon": "<span class='icon'>🤖</span>", "title": "AI Recommendation", "desc": "Find products similar to your favorite beauty items using TF-IDF and cosine similarity."},
-        {"icon": "<span class='icon'>😊</span>", "title": "Sentiment Analysis", "desc": "Analyze customer reviews to understand how users feel about a product."},
-        {"icon": "<span class='icon'>📊</span>", "title": "Analytics Dashboard", "desc": "Explore trends, ratings, customer behaviour and business insights."}
+        {"icon": "", "title": "AI Recommendation", "desc": "Find products similar to your favorite beauty items using TF-IDF and cosine similarity."},
+        {"icon": "", "title": "Sentiment Analysis", "desc": "Analyze customer reviews to understand how users feel about a product."},
+        {"icon": "", "title": "Analytics Dashboard", "desc": "Explore trends, ratings, customer behaviour and business insights."}
     ]
     for i, item in enumerate(features):
         with f_cols[i*2]:
@@ -64,7 +64,7 @@ def about_content():
     # SECTION 4 - TECH STACK
     st.markdown("""
     <div class="chart-card" style="text-align: center;">
-        <h2 style="margin-bottom: 24px;"><span class="icon">⚙️</span> Technology Stack</h2>
+        <h2 style="margin-bottom: 24px;">Technology Stack</h2>
         <div style="display: flex; gap: 12px; flex-wrap: wrap; justify-content: center;">
             <span class="category-badge">Python</span>
             <span class="category-badge">Streamlit</span>
@@ -85,7 +85,7 @@ def about_content():
     # SECTION 5 - ML PIPELINE
     st.markdown("""
     <div class="chart-card">
-        <h2 style="text-align: center; margin-bottom: 32px;"><span class="icon">🧠</span> Machine Learning Pipeline</h2>
+        <h2 style="text-align: center; margin-bottom: 32px;">Machine Learning Pipeline</h2>
         <div style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; align-items: center;">
             <div style="background: var(--primary-light); padding: 12px 24px; border-radius: 999px; color: var(--primary); font-weight: 600;">Dataset</div>
             <div style="color: var(--text-light);">➜</div>
@@ -107,7 +107,7 @@ def about_content():
     # SECTION 7 - DEVELOPER
     st.markdown("""
 <div class="chart-card" style="text-align: center; padding: 48px 24px;">
-<div style="font-size: 48px; margin-bottom: 16px;"><span class="icon">👩‍💻</span></div>
+<div style="font-size: 48px; margin-bottom: 16px;"></div>
 <h2 style="margin-bottom: 8px; color: var(--text);">Bhumika Sharma</h2>
 <h4 style="margin-bottom: 24px; color: var(--primary);">AI & Data Science Student</h4>
 

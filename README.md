@@ -36,19 +36,19 @@ Finding the right beauty product among millions of options can be overwhelming. 
 
 ---
 
-## ✨ Key Features
+## Key Features
 
-- 🎯 **AI-Powered Recommendation:** Content-based filtering utilizing TF-IDF and Cosine Similarity.
+- **AI-Powered Recommendation:** Content-based filtering utilizing TF-IDF and Cosine Similarity.
 - 💬 **Sentiment Analysis:** Real-time review classification (Positive/Negative) powered by Logistic Regression.
-- 📊 **Interactive Analytics Dashboard:** Deep dive into datasets with Plotly data visualizations.
+- **Interactive Analytics Dashboard:** Deep dive into datasets with Plotly data visualizations.
 - 💅 **Modern Streamlit UI:** Premium, Apple-inspired aesthetics with interactive recommendation cards.
-- 🤖 **AI Chat Assistant:** Seamless navigational help and product guidance.
+- **AI Chat Assistant:** Seamless navigational help and product guidance.
 
 ---
 
 ## 🎥 Demo
 
-> **🔥 Try it live!** [BeautyAI Web Application](https://beauty-ai-bhumika.streamlit.app/)
+> **Try it live!** [BeautyAI Web Application](https://beauty-ai-bhumika.streamlit.app/)
 
 ### Professional Screenshots
 
@@ -197,7 +197,7 @@ For a deep dive into the engineering and design decisions behind BeautyAI, check
 
 ---
 
-## 👩‍💻 Author
+## Author
 
 **Bhumika Sharma**
 *B.Tech (Artificial Intelligence & Data Science)*
