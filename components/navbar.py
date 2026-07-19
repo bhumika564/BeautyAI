@@ -36,6 +36,12 @@ def navbar(active_page="Home"):
             padding-bottom: 0 !important;
         }}
         
+        /* Add breathing room to the actual page content (everything after the CSS and Navbar injections) */
+        div[data-testid="stVerticalBlock"] > div.element-container:nth-child(n+3) {{
+            padding-left: 6% !important;
+            padding-right: 6% !important;
+        }}
+        
         /* The Fixed Myntra Header */
         .myntra-header {{
             position: fixed;
