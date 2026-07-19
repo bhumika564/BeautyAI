@@ -10,3 +10,4 @@ jupyterlab
 wordcloud
 textblob
 scikit-learn
+# Force Streamlit Cloud container rebuild to register new component routes
