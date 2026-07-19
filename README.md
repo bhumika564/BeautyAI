@@ -43,6 +43,34 @@ Finding the right beauty product among millions of options can be overwhelming. 
 - **Interactive Analytics Dashboard:** Deep dive into datasets with Plotly data visualizations.
 - 💅 **Modern Streamlit UI:** Premium, Apple-inspired aesthetics with interactive recommendation cards.
 - **AI Chat Assistant:** Seamless navigational help and product guidance.
+- 🎨 **Appearance Studio (Live Theme Editor):** Instantly customize the look and feel of the entire application.
+
+---
+
+## 🎨 Appearance Studio (Live Theme Editor)
+
+A powerful, built-in styling engine that allows you to dynamically change fonts and colors across the entire application in real-time. 
+
+To use it, click on the **✨ Appearance Studio (Live Theme Editor)** expander located just below the top navigation bar on any page. 
+
+### How to Customize the Theme:
+1. **Open the Studio:** Click the expander to reveal the live editor.
+2. **Select Typography:** Choose from a curated list of premium Google Fonts for both standard text (Primary Font) and titles (Heading Font).
+3. **Pick Colors:** Click any color block to open the hex color picker. The UI updates instantly as you drag the selector!
+4. **Undo Changes:** Use the convenient `↺` undo buttons next to any color picker to instantly revert that specific color to its previous state.
+5. **Save Your Theme:** Click **"Save Theme Changes"**. This automatically embeds your custom theme directly into the URL, ensuring your preferences are saved across refreshes and can easily be shared!
+6. **Restore Defaults:** Click **"Restore Original Theme"** to instantly wipe all custom colors and revert to the factory aesthetic.
+
+### Color Mapping Guide (What Changes What?):
+- **Primary Accent Color:** Changes the highlighted words in the Hero Section ("Beauty Products"), active navigation tabs, buttons, slider handles, and highlight badges.
+- **App Background Color:** Changes the core background color of the main application area.
+- **Main Text Color:** Controls the core text color, including the main subtitle text ("Get personalized product recommendations..."), paragraph text, and UI labels.
+- **Hero Section Background:** Changes the background color of the banner containing the page title (e.g., the black box behind "AI-POWERED BEAUTY RECOMMENDATION ENGINE").
+- **Hero Section Font Color:** Changes the color of the page title itself (e.g., the text "AI-POWERED BEAUTY RECOMMENDATION ENGINE").
+- **Action Buttons Background:** Controls the background color of standalone action buttons.
+- **Action Buttons Font Color:** Controls the text color inside standalone action buttons.
+- **Info & Feature Cards Background:** Changes the background color of product cards and feature boxes.
+- **Info & Feature Cards Font Color:** Changes the text color inside the product cards and feature boxes.
 
 ---
 
