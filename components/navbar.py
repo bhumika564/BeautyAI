@@ -1,5 +1,7 @@
 import streamlit as st
 
+def navbar(active_page="Home"):
+    from utils import get_image_base64
     logo_b64 = get_image_base64("assets/logo.png")
     
     # Generate the active class dynamically
