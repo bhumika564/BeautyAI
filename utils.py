@@ -78,9 +78,19 @@ def render_layout(page_function, active_page="Home"):
     from components.navbar import navbar
     from components.footer import footer
     from components.chatbot import render_chatbot
+    from theme_engine import inject_live_theme
+    from components.appearance_studio import render_appearance_studio
     
+    # 1. Inject Dynamic Theme Variables First
+    inject_live_theme()
+    
+    # 2. Load CSS and components
     load_css()
     navbar(active_page)
+    
+    # 3. Render the Appearance Studio below the headers
+    render_appearance_studio()
+    
     page_function()
     render_chatbot()
     footer()
