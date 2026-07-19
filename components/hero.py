@@ -8,7 +8,7 @@ def hero():
         st.markdown(
             """
             <div style="margin-top: 32px;">
-                <div class="hero-badge glass">
+                <div class="hero-badge">
                     AI-Powered Beauty Recommendation Engine
                 </div>
             </div>
