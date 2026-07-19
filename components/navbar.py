@@ -60,9 +60,9 @@ def navbar(active_page="Home"):
             align-items: center;
         }}
         .myntra-logo img {{
-            height: 45px;
+            height: 65px;
             width: auto;
-            max-width: 160px;
+            max-width: 220px;
             object-fit: contain;
         }}
         
@@ -161,16 +161,16 @@ def navbar(active_page="Home"):
 
     <div class="myntra-header">
         <div class="myntra-logo">
-            <a href="/" target="_self">
+            <a href="/home" target="_self">
                 <img src="data:image/png;base64,{logo_b64}" alt="Logo">
             </a>
         </div>
         <div class="myntra-nav">
-            <a href="Home" target="_self" class="{is_active('Home')}">HOME</a>
-            <a href="Recommendation_Engine" target="_self" class="{is_active('Products')}">PRODUCTS</a>
-            <a href="Sentiment_Analysis" target="_self" class="{is_active('Reviews')}">REVIEWS</a>
-            <a href="Market_Analytics" target="_self" class="{is_active('Analytics')}">ANALYTICS</a>
-            <a href="About" target="_self" class="{is_active('About')}">ABOUT</a>
+            <a href="/home" target="_self" class="{is_active('Home')}">HOME</a>
+            <a href="/recommendation" target="_self" class="{is_active('Products')}">PRODUCTS</a>
+            <a href="/sentiment" target="_self" class="{is_active('Reviews')}">REVIEWS</a>
+            <a href="/analytics" target="_self" class="{is_active('Analytics')}">ANALYTICS</a>
+            <a href="/about" target="_self" class="{is_active('About')}">ABOUT</a>
         </div>
         <div class="myntra-search">
             <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path></svg>
