@@ -4,12 +4,12 @@ def navbar(active_page="Home"):
     st.markdown('<div class="navbar-wrapper">', unsafe_allow_html=True)
     
     # We use Streamlit columns to create the navbar natively
-    cols = st.columns([5.0, 0.8, 0.8, 0.8, 0.8, 0.8, 1.5], gap="small", vertical_alignment="center")
+    cols = st.columns([4.0, 0.9, 0.9, 0.9, 0.9, 0.9, 1.5], gap="small", vertical_alignment="center")
     
     from utils import get_image_base64
     logo_b64 = get_image_base64("assets/logo.png")
     with cols[0]:
-        st.markdown(f'<div class="logo" style="margin-top:-30px;"><img src="data:image/png;base64,{logo_b64}" style="width:100%; max-width:500px; height:auto; object-fit:contain; transform: scale(1.15); transform-origin: left center;"></div>', unsafe_allow_html=True)
+        st.markdown(f'<div class="logo" style="margin-top:-24px;"><img src="data:image/png;base64,{logo_b64}" style="width:100%; max-width:420px; height:auto; object-fit:contain;"></div>', unsafe_allow_html=True)
         
     nav_items = [
         ("Home", "pages/home.py"),
