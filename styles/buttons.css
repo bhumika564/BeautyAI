@@ -13,8 +13,8 @@ div.stButton > button {
     transition: all 0.3s ease !important;
 }
 
-/* Fix Streamlit's native <p> tag overriding the button text color */
-div.stButton > button p {
+/* Fix Streamlit's native nested tags (like p, div, span) overriding the button text color */
+div.stButton > button * {
     color: inherit !important;
 }
 
