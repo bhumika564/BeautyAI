@@ -15,13 +15,26 @@ def navbar(active_page="Home"):
             display: none !important;
         }}
         
-        /* Remove default padding and use exactly 80px to accommodate our fixed header */
-        .block-container {{
+        /* Remove default padding from ALL possible Streamlit main containers */
+        .block-container,
+        [data-testid="stMainBlockContainer"],
+        [data-testid="stAppViewBlockContainer"],
+        .main {
             padding-top: 80px !important;
+            margin-top: 0 !important;
             padding-left: 0 !important;
             padding-right: 0 !important;
             max-width: 100% !important;
-        }}
+        }
+        
+        /* Force remove margins from markdown element containers at the top */
+        div.element-container:nth-child(1),
+        div.element-container:nth-child(2) {
+            margin-top: 0 !important;
+            margin-bottom: 0 !important;
+            padding-top: 0 !important;
+            padding-bottom: 0 !important;
+        }
         
         /* The Fixed Myntra Header */
         .myntra-header {{
@@ -197,7 +210,7 @@ def navbar(active_page="Home"):
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&display=swap');
     </style>
-    <div style="background-color: #000000; color: #FFFFFF; text-align: center; padding: 10px 0; font-size: 11px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase;">
+    <div style="margin-top: 0 !important; background-color: #000000; color: #FFFFFF; text-align: center; padding: 10px 0; font-size: 11px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase;">
         <span style="color: #FF9C71;">Data-Driven</span> Recommendations &bull; <span style="color: #FF9C71;">Expert</span> Beauty Intelligence
     </div>
     <div style="background-color: #E8E2D9; padding: 70px 20px; text-align: center; margin-bottom: 40px; border-bottom: 1px solid #D8D2C9;">
