@@ -8,6 +8,13 @@
     height: 100%;
 }
 
+.feature-card {
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 /* Product Tiles */
 .product-card {
     background: var(--bg);
