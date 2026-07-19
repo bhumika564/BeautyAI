@@ -1,6 +1,6 @@
 import streamlit as st
 from theme_engine import save_theme, reset_developer_theme, get_default_theme
-from components.local_storage import local_storage
+import json
 
 # A curated list of elegant Google Fonts for the beauty industry
 GOOGLE_FONTS = [
@@ -55,8 +55,7 @@ def get_current_theme_dict():
 def render_appearance_studio():
     """Renders the Appearance Studio inside a Streamlit expander on the main page."""
     
-    # We call local_storage for saving (with a dummy key to avoid conflict)
-    # The read happens in utils.py early on.
+
     
     with st.expander("✨ Appearance Studio (Live Theme Editor)", expanded=False):
         st.markdown(
@@ -111,6 +110,8 @@ def render_appearance_studio():
                 st.session_state[key] = val
                 if f"{key}_history" in st.session_state:
                     st.session_state[f"{key}_history"] = [val]
+            if "theme" in st.query_params:
+                del st.query_params["theme"]
             st.session_state["trigger_ls_clear"] = True
             
         def handle_dev_reset():
@@ -123,16 +124,14 @@ def render_appearance_studio():
         with btn_col2:
             if st.button("Save Theme Changes", type="primary", use_container_width=True):
                 theme_dict = get_current_theme_dict()
-                # Save to local storage for the user
-                local_storage(action="write", data=theme_dict, key="ls_write_action")
-                st.success("✨ Theme successfully saved to browser!")
+                st.query_params["theme"] = json.dumps(theme_dict)
+                st.success("✨ Theme successfully saved to URL!")
                 
         with btn_col3:
             st.button("Developer Reset (Global)", help="Resets the global server-side theme", use_container_width=True, on_click=handle_dev_reset)
             
         # Handle deferred triggers from callbacks safely
         if st.session_state.get("trigger_ls_clear"):
-            local_storage(action="clear", key="ls_clear_action")
             st.session_state["trigger_ls_clear"] = False
             st.success("✨ Original theme restored!")
             
