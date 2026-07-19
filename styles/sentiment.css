@@ -1,0 +1,59 @@
+.page-header {
+    text-align: center;
+    margin-bottom: 40px;
+    margin-top: 40px;
+}
+
+.page-header h1 {
+    font-size: 52px;
+    margin-bottom: 16px;
+    color: var(--text);
+    font-weight: 700;
+}
+
+.page-badge {
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--primary);
+    background: var(--primary-light);
+    margin-bottom: 16px;
+}
+
+.sentiment-card {
+    background: var(--card);
+    padding: 35px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin-top: 35px;
+    margin-bottom: 24px;
+    text-align: center;
+    border: 1px solid var(--border);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sentiment-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 40px rgba(0,0,0,.08);
+}
+
+.confidence {
+    margin-top: 24px;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-light);
+}
+
+/* Make text area look premium */
+[data-baseweb="textarea"] {
+    background: var(--card);
+    border-radius: 16px;
+    border: 1px solid var(--border);
+}
+
+[data-baseweb="textarea"] textarea {
+    font-size: 16px;
+    padding: 16px;
+}

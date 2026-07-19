@@ -1,0 +1,12 @@
+pandas
+numpy
+matplotlib
+plotly
+missingno
+pyarrow
+tqdm
+openpyxl
+jupyterlab
+wordcloud
+textblob
+scikit-learn
