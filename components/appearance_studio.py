@@ -1,59 +1,59 @@
 import streamlit as st
+from theme_engine import save_theme
 
 # A curated list of elegant Google Fonts for the beauty industry
 GOOGLE_FONTS = [
-    "Inter",
-    "Lora",
-    "Playfair Display",
-    "Montserrat",
-    "Roboto",
-    "Open Sans",
-    "Lato",
-    "Poppins",
-    "Oswald",
-    "Raleway",
-    "Nunito",
-    "Cinzel",
-    "Cormorant Garamond",
-    "Outfit",
-    "Manrope"
+    "Inter", "Lora", "Playfair Display", "Montserrat", "Roboto",
+    "Open Sans", "Lato", "Poppins", "Oswald", "Raleway",
+    "Nunito", "Cinzel", "Cormorant Garamond", "Outfit", "Manrope"
 ]
 
 def render_appearance_studio():
     """Renders the Appearance Studio inside a Streamlit expander on the main page."""
-    with st.expander("✨ Appearance Studio (Live Typography Preview)", expanded=False):
+    with st.expander("✨ Appearance Studio (Live Theme Editor)", expanded=False):
         st.markdown(
             """
             <p style="font-size: 13px; color: var(--text-light); margin-bottom: 24px;">
-                Experiment with live typography changes. Select a font below to see it instantly applied across the entire UI.
+                Experiment with live typography and color changes. Select options below to see them instantly applied across the entire UI.
             </p>
             """,
             unsafe_allow_html=True
         )
         
-        # Primary Font Selection (Body, Buttons, Nav)
-        st.selectbox(
-            "Primary Font (Body, Buttons)",
-            options=GOOGLE_FONTS,
-            key="theme_font_primary",
-            help="This font applies to paragraphs, navigation links, buttons, and general UI text."
-        )
+        col1, col2 = st.columns(2)
         
-        # Heading Font Selection (H1-H6, Hero)
-        st.selectbox(
-            "Heading Font (Titles, Hero)",
-            options=GOOGLE_FONTS,
-            key="theme_font_heading",
-            help="This font applies to all major headings and large text displays."
-        )
-        
+        with col1:
+            st.markdown("**Typography**")
+            st.selectbox("Primary Font (Body)", options=GOOGLE_FONTS, key="theme_font_primary")
+            st.selectbox("Heading Font (Titles)", options=GOOGLE_FONTS, key="theme_font_heading")
+            
+        with col2:
+            st.markdown("**Color Palette**")
+            st.color_picker("Primary Accent Color", key="theme_color_primary")
+            st.color_picker("App Background Color", key="theme_color_bg")
+            st.color_picker("Main Text Color", key="theme_color_text")
+            
         st.markdown(
             """
             <div style="margin-top: 32px; padding: 16px; background: var(--card); border: 1px solid var(--border);">
                 <p style="font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-light); margin-bottom: 12px;">Live Preview</p>
-                <h4 style="margin-top: 0; margin-bottom: 8px;">The quick brown fox</h4>
-                <p style="font-size: 13px; margin: 0;">jumps over the lazy dog.</p>
+                <h4 style="margin-top: 0; margin-bottom: 8px; font-family: var(--font-heading); color: var(--text);">The quick brown fox</h4>
+                <p style="font-size: 13px; margin: 0; font-family: var(--font-primary); color: var(--text);">jumps over the lazy dog.</p>
+                <button style="margin-top: 12px; background: var(--primary); color: #fff; border: none; padding: 8px 16px; cursor: pointer; font-family: var(--font-primary); font-weight: 600;">Sample Button</button>
             </div>
             """,
             unsafe_allow_html=True
         )
+        
+        st.markdown("---")
+        
+        if st.button("💾 Apply & Save Changes", type="primary", use_container_width=True):
+            theme_dict = {
+                "theme_font_primary": st.session_state.theme_font_primary,
+                "theme_font_heading": st.session_state.theme_font_heading,
+                "theme_color_primary": st.session_state.theme_color_primary,
+                "theme_color_bg": st.session_state.theme_color_bg,
+                "theme_color_text": st.session_state.theme_color_text,
+            }
+            save_theme(theme_dict)
+            st.success("✨ Theme successfully saved! These changes are now permanent.")

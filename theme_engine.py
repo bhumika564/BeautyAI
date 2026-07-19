@@ -1,11 +1,34 @@
 import streamlit as st
+import json
+import os
+
+CONFIG_PATH = "config/theme.json"
+
+def load_saved_theme():
+    """Reads the permanent theme configuration from JSON."""
+    if os.path.exists(CONFIG_PATH):
+        with open(CONFIG_PATH, "r") as f:
+            return json.load(f)
+    return {
+        "theme_font_primary": "Inter",
+        "theme_font_heading": "Lora",
+        "theme_color_primary": "#000000",
+        "theme_color_bg": "#FFFFFF",
+        "theme_color_text": "#333333"
+    }
+
+def save_theme(theme_dict):
+    """Writes the current preview configuration to JSON."""
+    os.makedirs(os.path.dirname(CONFIG_PATH), exist_ok=True)
+    with open(CONFIG_PATH, "w") as f:
+        json.dump(theme_dict, f, indent=4)
 
 def init_theme_state():
-    """Initializes the session state variables for the Appearance Studio."""
-    if "theme_font_primary" not in st.session_state:
-        st.session_state.theme_font_primary = "Inter"
-    if "theme_font_heading" not in st.session_state:
-        st.session_state.theme_font_heading = "Lora"
+    """Initializes the session state variables from the saved JSON config."""
+    saved_theme = load_saved_theme()
+    for key, val in saved_theme.items():
+        if key not in st.session_state:
+            st.session_state[key] = val
 
 def inject_live_theme():
     """Builds and injects the dynamic CSS variables based on session state."""
@@ -13,23 +36,27 @@ def inject_live_theme():
     
     primary_font = st.session_state.theme_font_primary
     heading_font = st.session_state.theme_font_heading
+    color_primary = st.session_state.theme_color_primary
+    color_bg = st.session_state.theme_color_bg
+    color_text = st.session_state.theme_color_text
     
     primary_font_url = primary_font.replace(" ", "+")
     heading_font_url = heading_font.replace(" ", "+")
     
-    # Fetch both fonts dynamically from Google Fonts with standard weights
     font_import = f"""
     <style>
         @import url('https://fonts.googleapis.com/css2?family={primary_font_url}:wght@300;400;500;600&family={heading_font_url}:ital,wght@0,400;0,500;0,600;1,400&display=swap');
     </style>
     """
     
-    # Map them to global CSS variables
     css_vars = f"""
     <style>
         :root {{
             --font-primary: '{primary_font}', sans-serif;
             --font-heading: '{heading_font}', serif;
+            --primary: {color_primary};
+            --bg: {color_bg};
+            --text: {color_text};
         }}
     </style>
     """
