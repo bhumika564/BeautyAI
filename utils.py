@@ -49,9 +49,12 @@ def predict_sentiment(review):
 def load_css():
     import os
     css_files = [f for f in os.listdir("styles") if f.endswith(".css")]
+    combined_css = ""
     for file in css_files:
         with open(f"styles/{file}", encoding="utf-8") as f:
-            st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+            combined_css += f.read() + "\n"
+    if combined_css:
+        st.markdown(f"<style>{combined_css}</style>", unsafe_allow_html=True)
 
 def render_footer():
     st.markdown("""

@@ -191,9 +191,6 @@ def navbar(active_page="Home"):
             </a>
         </div>
     </div>
-    """
-    st.markdown(html_content, unsafe_allow_html=True)
-    
     # Page Title Mapping
     page_titles = {
         "Home": "Intelligent Beauty Curation",
@@ -203,10 +200,8 @@ def navbar(active_page="Home"):
         "About": "The BeautyAI Platform"
     }
     header_title = page_titles.get(active_page, "Intelligent Beauty Curation")
-    
-    # 1. Thin Black Banner
-    # 2. Large Beige Page Header
-    st.markdown(f"""
+
+    html_content += f"""
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&display=swap');
     </style>
@@ -216,4 +211,6 @@ def navbar(active_page="Home"):
     <div style="background-color: #E8E2D9; padding: 70px 20px; text-align: center; margin-bottom: 40px; border-bottom: 1px solid #D8D2C9;">
         <h1 style="font-family: 'Playfair Display', serif; font-size: 54px; color: #2C3E50; font-weight: 400; letter-spacing: 0.06em; margin: 0;">{header_title}</h1>
     </div>
-    """, unsafe_allow_html=True)
+    """
+    
+    st.markdown(html_content, unsafe_allow_html=True)
