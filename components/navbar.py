@@ -4,189 +4,100 @@ def navbar(active_page="Home"):
     from utils import get_image_base64
     logo_b64 = get_image_base64("assets/logo.png")
     
-    # Generate the active class dynamically
-    def is_active(page_name):
-        return "active" if active_page == page_name else ""
+    # 1. Native Streamlit Navbar Row (This is the FIRST element on the page)
+    # We use 10 columns to match the Myntra layout exactly (Logo, 5 Links, Search, 3 Icons)
+    cols = st.columns([1.5, 0.7, 0.9, 0.8, 0.9, 0.7, 2.5, 0.8, 0.8, 0.6], gap="small", vertical_alignment="center")
+    
+    with cols[0]:
+        # Inject CSS directly into the first column to guarantee it styles the parent row without being stripped
+        st.markdown("""
+        <style>
+            /* Hide default Streamlit header */
+            header[data-testid="stHeader"] {
+                display: none !important;
+            }
+            
+            /* Remove top padding of the main container */
+            .block-container {
+                padding-top: 0 !important;
+                padding-left: 0 !important;
+                padding-right: 0 !important;
+                max-width: 100% !important;
+            }
+            
+            /* Fix the very first element (our st.columns row) to the top of the viewport */
+            .block-container > div[data-testid="stVerticalBlock"] > div:first-child {
+                position: fixed !important;
+                top: 0 !important;
+                left: 0 !important;
+                right: 0 !important;
+                background-color: #ffffff !important;
+                box-shadow: 0 4px 12px 0 rgba(0,0,0,.05) !important;
+                z-index: 999999 !important;
+                padding: 10px 2% !important;
+                margin: 0 !important;
+            }
+            
+            /* Strip default button styling to make them look like clean Myntra text links */
+            .block-container > div[data-testid="stVerticalBlock"] > div:first-child button {
+                background-color: transparent !important;
+                border: none !important;
+                box-shadow: none !important;
+                color: #282c3f !important;
+                font-weight: 700 !important;
+                font-size: 12px !important;
+                text-transform: uppercase !important;
+                letter-spacing: .3px !important;
+                height: auto !important;
+                padding: 10px 0 !important;
+                min-height: 0 !important;
+            }
+            .block-container > div[data-testid="stVerticalBlock"] > div:first-child button:hover {
+                color: #ee5f73 !important;
+            }
+            
+            /* Style the search bar input */
+            .block-container > div[data-testid="stVerticalBlock"] > div:first-child div[data-baseweb="input"] {
+                background-color: #f5f5f6 !important;
+                border: 1px solid #f5f5f6 !important;
+                border-radius: 4px !important;
+            }
+        </style>
+        """, unsafe_allow_html=True)
+        st.markdown(f'<img src="data:image/png;base64,{logo_b64}" style="width:100%; min-width:200px; max-width:300px; height:auto; object-fit:contain; margin-left:0px; margin-top: 5px;">', unsafe_allow_html=True)
         
-    html_content = f"""
-    <style>
-        /* Hide the native Streamlit header */
-        header[data-testid="stHeader"] {{
-            display: none !important;
-        }}
+    nav_items = [
+        ("Home", "pages/home.py"),
+        ("Products", "pages/recommendation.py"),
+        ("Reviews", "pages/sentiment.py"),
+        ("Analytics", "pages/analytics.py"),
+        ("About", "pages/about.py")
+    ]
+    
+    # Render the 5 navigation links
+    for i, (label, path) in enumerate(nav_items):
+        with cols[i+1]:
+            if active_page == label:
+                # Active state with pink underline
+                st.markdown(f'<div style="color: #ee5f73; font-weight: 700; font-size: 12px; text-transform: uppercase; text-align: center; border-bottom: 3px solid #ee5f73; padding-bottom: 5px; margin-top: 10px; letter-spacing: .3px;">{label}</div>', unsafe_allow_html=True)
+            else:
+                if st.button(label, key=f"nav_{label}", use_container_width=True):
+                    st.switch_page(path)
+                    
+    # Render the Search Bar
+    with cols[6]:
+        st.text_input("Search", placeholder="Search for products, brands and more", label_visibility="collapsed")
         
-        /* Remove default padding */
-        .block-container {{
-            padding-top: 0 !important;
-            padding-left: 0 !important;
-            padding-right: 0 !important;
-            max-width: 100% !important;
-        }}
-        
-        /* The Fixed Myntra Header */
-        .myntra-header {{
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 80px;
-            background-color: #ffffff;
-            box-shadow: 0 4px 12px 0 rgba(0,0,0,.05);
-            z-index: 999999;
-            display: flex;
-            align-items: center;
-            padding: 0 4%;
-            min-width: 1000px;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-        }}
-        
-        /* Spacer to push content down */
-        .header-spacer {{
-            height: 80px;
-            width: 100%;
-        }}
-        
-        /* Logo */
-        .myntra-logo {{
-            margin-right: 40px;
-            display: flex;
-            align-items: center;
-        }}
-        .myntra-logo img {{
-            height: 45px;
-            width: auto;
-            max-width: 160px;
-            object-fit: contain;
-        }}
-        
-        /* Navigation Links */
-        .myntra-nav {{
-            display: flex;
-            height: 100%;
-            align-items: center;
-        }}
-        .myntra-nav a {{
-            text-decoration: none;
-            color: #282c3f;
-            font-size: 14px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: .3px;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            padding: 0 17px;
-            border-bottom: 4px solid transparent;
-            transition: all 0.2s ease;
-        }}
-        .myntra-nav a:hover, .myntra-nav a.active {{
-            border-bottom: 4px solid #ee5f73;
-        }}
-        
-        /* Search Bar */
-        .myntra-search {{
-            flex-grow: 1;
-            max-width: 500px;
-            margin: 0 40px;
-            position: relative;
-            display: flex;
-            align-items: center;
-        }}
-        .myntra-search input {{
-            width: 100%;
-            background-color: #f5f5f6;
-            border: 1px solid #f5f5f6;
-            border-radius: 4px;
-            padding: 10px 10px 10px 45px;
-            font-size: 14px;
-            color: #696e79;
-            outline: none;
-            transition: all 0.2s ease;
-        }}
-        .myntra-search input:focus {{
-            background-color: #ffffff;
-            border: 1px solid #eaeaec;
-        }}
-        .myntra-search svg {{
-            position: absolute;
-            left: 15px;
-            width: 16px;
-            height: 16px;
-            fill: #696e79;
-        }}
-        
-        /* Icons (Profile, Wishlist, Bag) */
-        .myntra-icons {{
-            display: flex;
-            gap: 25px;
-            align-items: center;
-            margin-left: auto;
-        }}
-        .myntra-icon-item {{
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            text-decoration: none;
-            color: #000;
-        }}
-        .myntra-icon-item svg {{
-            width: 20px;
-            height: 20px;
-            stroke: #000;
-            fill: none;
-            stroke-width: 1.5;
-            margin-bottom: 5px;
-            transition: all 0.2s ease;
-        }}
-        .myntra-icon-item span {{
-            font-size: 12px;
-            font-weight: 600;
-            color: #000;
-            transition: all 0.2s ease;
-        }}
-        .myntra-icon-item:hover svg, .myntra-icon-item:hover span {{
-            color: #ee5f73;
-            stroke: #ee5f73;
-        }}
-    </style>
+    # Render the 3 right-side icons as text links
+    with cols[7]:
+        st.button("PROFILE", key="nav_profile", use_container_width=True)
+    with cols[8]:
+        st.button("WISHLIST", key="nav_wish", use_container_width=True)
+    with cols[9]:
+        st.button("BAG", key="nav_bag", use_container_width=True)
 
-    <div class="myntra-header">
-        <div class="myntra-logo">
-            <a href="/" target="_self">
-                <img src="data:image/png;base64,{logo_b64}" alt="Logo">
-            </a>
-        </div>
-        <div class="myntra-nav">
-            <a href="Home" target="_self" class="{is_active('Home')}">HOME</a>
-            <a href="Recommendation_Engine" target="_self" class="{is_active('Products')}">PRODUCTS</a>
-            <a href="Sentiment_Analysis" target="_self" class="{is_active('Reviews')}">REVIEWS</a>
-            <a href="Market_Analytics" target="_self" class="{is_active('Analytics')}">ANALYTICS</a>
-            <a href="About" target="_self" class="{is_active('About')}">ABOUT</a>
-        </div>
-        <div class="myntra-search">
-            <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path></svg>
-            <input type="text" placeholder="Search for products, brands and more">
-        </div>
-        <div class="myntra-icons">
-            <a href="#" class="myntra-icon-item">
-                <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-                <span>Profile</span>
-            </a>
-            <a href="#" class="myntra-icon-item">
-                <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-                <span>Wishlist</span>
-            </a>
-            <a href="#" class="myntra-icon-item">
-                <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
-                <span>Bag</span>
-            </a>
-        </div>
-    </div>
-    <div class="header-spacer"></div>
-    """
-    st.markdown(html_content, unsafe_allow_html=True)
+    # 2. Spacer to push the page content exactly below the 80px fixed navbar
+    st.markdown('<div style="height: 75px; width: 100%;"></div>', unsafe_allow_html=True)
     
     # Page Title Mapping
     page_titles = {
@@ -198,8 +109,7 @@ def navbar(active_page="Home"):
     }
     header_title = page_titles.get(active_page, "Intelligent Beauty Curation")
     
-    # 1. Thin Black Banner
-    # 2. Large Beige Page Header
+    # 3. Thin Black Banner & Large Beige Page Header
     st.markdown(f"""
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&display=swap');
