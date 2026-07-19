@@ -19,22 +19,22 @@ def navbar(active_page="Home"):
         .block-container,
         [data-testid="stMainBlockContainer"],
         [data-testid="stAppViewBlockContainer"],
-        .main {
+        .main {{
             padding-top: 80px !important;
             margin-top: 0 !important;
             padding-left: 0 !important;
             padding-right: 0 !important;
             max-width: 100% !important;
-        }
+        }}
         
         /* Force remove margins from markdown element containers at the top */
         div.element-container:nth-child(1),
-        div.element-container:nth-child(2) {
+        div.element-container:nth-child(2) {{
             margin-top: 0 !important;
             margin-bottom: 0 !important;
             padding-top: 0 !important;
             padding-bottom: 0 !important;
-        }
+        }}
         
         /* The Fixed Myntra Header */
         .myntra-header {{
