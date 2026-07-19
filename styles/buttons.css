@@ -1,33 +1,51 @@
-/* Streamlit Button Overrides */
+/* Sharp E-Commerce Buttons */
 div.stButton > button {
     width: 100%;
-    height: 48px;
+    height: 44px;
     border-radius: var(--radius-btn) !important;
     border: 1px solid var(--border) !important;
     background: var(--card) !important;
     color: var(--text) !important;
-    font-size: 16px !important;
+    font-size: 14px !important;
     font-weight: 600 !important;
-    padding: 0 24px !important;
-    transition: transform 0.25s ease, box-shadow 0.25s ease !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    transition: background 0.2s ease, border-color 0.2s ease !important;
 }
 
 div.stButton > button:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow) !important;
-    border-color: var(--border) !important;
+    background: #F3F4F6 !important;
+    border-color: #D1D5DB !important;
     color: var(--text) !important;
 }
 
-/* Primary Button Override (First button on the screen usually, e.g., Hero) */
-div[data-testid="column"]:first-child div.stButton:first-of-type button {
+/* Primary "Add to Bag" Button */
+div[data-testid="column"]:first-child div.stButton:first-of-type button,
+.save-btn {
     background: var(--primary) !important;
-    color: var(--card) !important;
+    color: #FFFFFF !important;
     border: none !important;
 }
 
-div[data-testid="column"]:first-child div.stButton:first-of-type button:hover {
-    box-shadow: 0 15px 35px rgba(244,91,140,.25) !important;
+div[data-testid="column"]:first-child div.stButton:first-of-type button:hover,
+.save-btn:hover {
     background: var(--primary-hover) !important;
-    color: var(--card) !important;
+    color: #FFFFFF !important;
 }
+
+/* Custom save-btn HTML overlay logic */
+.save-btn {
+    margin-top: 12px;
+    height: 44px;
+    border-radius: var(--radius-btn);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+.save-btn::after { content: "ADD TO BAG"; }
+.save-btn:hover::after { content: "ADD TO BAG"; }
