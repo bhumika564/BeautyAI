@@ -2,24 +2,27 @@ import streamlit as st
 from components.ui import get_image_base64
 
 def hero():
+    theme_color_text = st.session_state.get("theme_color_text", "#000000")
+    theme_color_primary = st.session_state.get("theme_color_primary", "#C4A484")
+
     left, right = st.columns([1.05, 0.95], gap="large")
 
     with left:
 
 
         st.markdown(
-            """
+            f"""
             <h1 class="hero-title">
-                Discover Your Perfect<br>
-                <span>Beauty Products</span>
+                <span style="color: {theme_color_text} !important;">Discover Your Perfect<br></span>
+                <span style="color: {theme_color_primary} !important;">Beauty Products</span>
             </h1>
             """,
             unsafe_allow_html=True,
         )
 
         st.markdown(
-            """
-            <p class="hero-subtitle">
+            f"""
+            <p class="hero-subtitle" style="color: {theme_color_text} !important;">
             Get personalized product recommendations, analyze customer sentiments,
             and explore insights from 100K+ Amazon Beauty reviews.
             </p>
