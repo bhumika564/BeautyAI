@@ -96,7 +96,7 @@ def navbar(active_page="Home"):
             transition: all 0.2s ease;
         }}
         .myntra-nav a:hover, .myntra-nav a.active {{
-            border-bottom: 4px solid #ee5f73;
+            border-bottom: 4px solid #E8E2D9;
         }}
         
         /* Search Bar */
