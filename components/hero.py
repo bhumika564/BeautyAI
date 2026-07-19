@@ -5,16 +5,7 @@ def hero():
     left, right = st.columns([1.05, 0.95], gap="large")
 
     with left:
-        st.markdown(
-            """
-            <div style="margin-top: 32px;">
-                <div class="hero-badge">
-                    AI-Powered Beauty Recommendation Engine
-                </div>
-            </div>
-            """,
-            unsafe_allow_html=True,
-        )
+
 
         st.markdown(
             """
