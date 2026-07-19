@@ -6,8 +6,10 @@ def navbar(active_page="Home"):
     # We use Streamlit columns to create the navbar natively
     cols = st.columns([2, 0.8, 0.8, 0.8, 0.8, 0.8, 1.5], gap="small")
     
+    from utils import get_image_base64
+    logo_b64 = get_image_base64("assets/logo.png")
     with cols[0]:
-        st.markdown('<div class="logo">💄 <span>BeautyAI</span></div>', unsafe_allow_html=True)
+        st.markdown(f'<div class="logo" style="margin-top:-8px;"><img src="data:image/png;base64,{logo_b64}" style="height:56px; object-fit:contain;"></div>', unsafe_allow_html=True)
         
     nav_items = [
         ("Home", "pages/home.py"),
