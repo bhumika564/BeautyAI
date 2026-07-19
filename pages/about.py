@@ -118,9 +118,9 @@ def about_content():
 </div>
 
 <div style="display: flex; justify-content: center; gap: 16px;">
-<a href="https://github.com" target="_blank" style="background: var(--text); color: var(--card); padding: 12px 32px; border-radius: 999px; font-weight: 600; text-decoration: none; transition: opacity 0.2s;">GitHub</a>
-<a href="https://linkedin.com" target="_blank" style="background: #0077b5; color: var(--card); padding: 12px 32px; border-radius: 999px; font-weight: 600; text-decoration: none; transition: opacity 0.2s;">LinkedIn</a>
-<a href="#" style="background: var(--primary); color: var(--card); padding: 12px 32px; border-radius: 999px; font-weight: 600; text-decoration: none; transition: opacity 0.2s;">Resume</a>
+<a href="https://github.com/bhumika564" target="_blank" rel="noopener noreferrer" style="background: var(--text); color: var(--card); padding: 12px 32px; border-radius: 999px; font-weight: 600; text-decoration: none; transition: opacity 0.2s;">GitHub</a>
+<a href="https://www.linkedin.com/in/bhumika-sharma-92a745277?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer" style="background: #0077b5; color: var(--card); padding: 12px 32px; border-radius: 999px; font-weight: 600; text-decoration: none; transition: opacity 0.2s;">LinkedIn</a>
+<a href="https://drive.google.com/file/d/1CKwtTOPVJNKbieBPzc-5GgPg7ydO_K9x/view?usp=sharing" target="_blank" rel="noopener noreferrer" style="background: var(--primary); color: var(--card); padding: 12px 32px; border-radius: 999px; font-weight: 600; text-decoration: none; transition: opacity 0.2s;">Resume</a>
 </div>
 </div>
 """, unsafe_allow_html=True)
