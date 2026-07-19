@@ -219,7 +219,7 @@ def navbar(active_page="Home"):
         <span style="color: #FF9C71;">Data-Driven</span> Recommendations &bull; <span style="color: #FF9C71;">Expert</span> Beauty Intelligence
     </div>
     <div class="full-bleed-banner hero-banner-bg">
-        <h1><span style="color: {hero_text_color} !important;">{header_title}</span></h1>
+        <div class="hero-banner-title" style="color: {hero_text_color} !important;">{header_title}</div>
     </div>
     """
     

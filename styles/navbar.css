@@ -58,8 +58,7 @@ button[kind="tertiary"]:hover {
     border-bottom: 1px solid var(--border);
 }
 
-.hero-banner-bg h1,
-.hero-banner-bg h1 a {
+.hero-banner-title {
     font-family: var(--font-heading) !important;
     font-size: 44px !important;
     color: var(--hero-text) !important;
