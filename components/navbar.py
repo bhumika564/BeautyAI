@@ -204,13 +204,13 @@ def navbar(active_page="Home"):
     
     # Page Title Mapping
     page_titles = {
-        "Home": "Intelligent Beauty Curation",
+        "Home": "AI-POWERED BEAUTY RECOMMENDATION ENGINE",
         "Products": "Explore AI Recommendations",
         "Reviews": "Sentiment Analysis",
         "Analytics": "Market Analytics",
         "About": "The BeautyAI Platform"
     }
-    header_title = page_titles.get(active_page, "Intelligent Beauty Curation")
+    header_title = page_titles.get(active_page, "AI-POWERED BEAUTY RECOMMENDATION ENGINE")
 
     hero_text_color = st.session_state.get("theme_color_hero_text", "#2C3E50")
 
