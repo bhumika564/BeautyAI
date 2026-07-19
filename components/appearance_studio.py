@@ -22,6 +22,11 @@ def color_picker_with_undo(label, key):
         if st.session_state[history_key][-1] != new_val:
             st.session_state[history_key].append(new_val)
             
+    def perform_undo():
+        if len(st.session_state[history_key]) > 1:
+            st.session_state[history_key].pop()  # Remove current
+            st.session_state[key] = st.session_state[history_key][-1]  # Set to previous
+            
     col_picker, col_undo = st.columns([0.85, 0.15])
     
     with col_picker:
@@ -30,10 +35,7 @@ def color_picker_with_undo(label, key):
     with col_undo:
         st.markdown("<div style='margin-top: 28px;'></div>", unsafe_allow_html=True)
         can_undo = len(st.session_state[history_key]) > 1
-        if st.button("↺", key=f"undo_{key}", help="Revert to previous color", disabled=not can_undo, use_container_width=True):
-            st.session_state[history_key].pop()  # Remove current
-            st.session_state[key] = st.session_state[history_key][-1]  # Set to previous
-            st.rerun()
+        st.button("↺", key=f"undo_{key}", help="Revert to previous color", disabled=not can_undo, use_container_width=True, on_click=perform_undo)
 
 def get_current_theme_dict():
     return {
