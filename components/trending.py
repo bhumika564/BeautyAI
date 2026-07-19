@@ -37,5 +37,5 @@ def trending():
                 reviews=product["reviews"],
                 category=product["category"]
             )
-            if st.button("🔍 Explore", key=f"trend_{i}", use_container_width=True):
+            if st.button("Explore", key=f"trend_{i}", use_container_width=True):
                 st.switch_page("pages/recommendation.py")

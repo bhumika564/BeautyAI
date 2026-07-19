@@ -13,16 +13,22 @@ div.stButton > button {
     transition: all 0.3s ease !important;
 }
 
-div.stButton > button:hover {
-    background: var(--primary) !important;
-    color: var(--bg) !important;
+/* Fix Streamlit's native <p> tag overriding the button text color */
+div.stButton > button p {
+    color: inherit !important;
 }
 
-/* Primary "Add to Bag" Button */
+div.stButton > button:hover {
+    background: var(--text) !important; /* Deep charcoal */
+    border-color: var(--text) !important;
+    color: #FFFFFF !important;
+}
+
+/* Primary Hero Button */
 div[data-testid="column"]:first-child div.stButton:first-of-type button,
 .save-btn {
     background: var(--primary) !important;
-    color: var(--bg) !important;
+    color: #FFFFFF !important;
     border: 1px solid var(--primary) !important;
 }
 
