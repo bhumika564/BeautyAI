@@ -16,8 +16,11 @@ def load_saved_theme():
         "theme_color_bg": "#FFFFFF",
         "theme_color_text": "#333333",
         "theme_color_hero_bg": "#E0D7D0",
+        "theme_color_hero_text": "#2C3E50",
         "theme_color_action_bg": "#FFFFFF",
-        "theme_color_card_bg": "#E0D7D0"
+        "theme_color_action_text": "#000000",
+        "theme_color_card_bg": "#E0D7D0",
+        "theme_color_card_text": "#333333"
     }
 
 def save_theme(theme_dict):
@@ -43,8 +46,11 @@ def inject_live_theme():
     color_bg = st.session_state.theme_color_bg
     color_text = st.session_state.theme_color_text
     color_hero_bg = st.session_state.theme_color_hero_bg
+    color_hero_text = st.session_state.theme_color_hero_text
     color_action_bg = st.session_state.theme_color_action_bg
+    color_action_text = st.session_state.theme_color_action_text
     color_card_bg = st.session_state.theme_color_card_bg
+    color_card_text = st.session_state.theme_color_card_text
     
     primary_font_url = primary_font.replace(" ", "+")
     heading_font_url = heading_font.replace(" ", "+")
@@ -78,8 +84,11 @@ def inject_live_theme():
             --bg: {color_bg};
             --text: {color_text};
             --hero-bg: {color_hero_bg};
+            --hero-text: {color_hero_text};
             --action-bg: {color_action_bg};
+            --action-text: {color_action_text};
             --card: {color_card_bg};
+            --card-text: {color_card_text};
         }}
     </style>
     """

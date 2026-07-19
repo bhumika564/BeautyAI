@@ -8,6 +8,10 @@
     height: 100%;
 }
 
+.stats-card *, .feature-card * {
+    color: var(--card-text) !important;
+}
+
 .feature-card {
     height: 180px;
     display: flex;

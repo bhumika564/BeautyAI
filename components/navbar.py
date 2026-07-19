@@ -219,7 +219,7 @@ def navbar(active_page="Home"):
         <span style="color: #FF9C71;">Data-Driven</span> Recommendations &bull; <span style="color: #FF9C71;">Expert</span> Beauty Intelligence
     </div>
     <div class="full-bleed-banner" style="background-color: var(--hero-bg); padding: 70px 20px; text-align: center; margin-bottom: 40px; border-bottom: 1px solid #D8D2C9;">
-        <h1 style="font-family: var(--font-heading); font-size: 54px; color: #2C3E50; font-weight: 400; letter-spacing: 0.06em; margin: 0;">{header_title}</h1>
+        <h1 style="font-family: var(--font-heading); font-size: 54px; color: var(--hero-text); font-weight: 400; letter-spacing: 0.06em; margin: 0;">{header_title}</h1>
     </div>
     """
     

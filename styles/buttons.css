@@ -5,7 +5,7 @@ div.stButton > button {
     border-radius: 0 !important;
     border: 1px solid var(--primary) !important;
     background: var(--action-bg) !important;
-    color: var(--primary) !important;
+    color: var(--action-text) !important;
     font-size: 13px !important;
     font-weight: 500 !important;
     text-transform: uppercase !important;
@@ -28,7 +28,7 @@ div.stButton > button:hover {
 div[data-testid="column"]:first-child div.stButton:first-of-type button,
 .save-btn {
     background: var(--action-bg) !important;
-    color: var(--primary) !important;
+    color: var(--action-text) !important;
     border: 1px solid var(--primary) !important;
 }
 

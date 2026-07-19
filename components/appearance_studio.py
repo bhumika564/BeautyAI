@@ -33,10 +33,13 @@ def render_appearance_studio():
             st.color_picker("App Background Color", key="theme_color_bg")
             st.color_picker("Main Text Color", key="theme_color_text")
             
-            st.markdown("**Components Background**")
+            st.markdown("**Components Background & Font Color**")
             st.color_picker("Hero Section Background", key="theme_color_hero_bg")
+            st.color_picker("Hero Section Font Color", key="theme_color_hero_text")
             st.color_picker("Action Buttons Background", key="theme_color_action_bg")
+            st.color_picker("Action Buttons Font Color", key="theme_color_action_text")
             st.color_picker("Info & Feature Cards Background", key="theme_color_card_bg")
+            st.color_picker("Info & Feature Cards Font Color", key="theme_color_card_text")
             
         st.markdown(
             """
@@ -60,8 +63,11 @@ def render_appearance_studio():
                 "theme_color_bg": st.session_state.theme_color_bg,
                 "theme_color_text": st.session_state.theme_color_text,
                 "theme_color_hero_bg": st.session_state.theme_color_hero_bg,
+                "theme_color_hero_text": st.session_state.theme_color_hero_text,
                 "theme_color_action_bg": st.session_state.theme_color_action_bg,
-                "theme_color_card_bg": st.session_state.theme_color_card_bg
+                "theme_color_action_text": st.session_state.theme_color_action_text,
+                "theme_color_card_bg": st.session_state.theme_color_card_bg,
+                "theme_color_card_text": st.session_state.theme_color_card_text
             }
             save_theme(theme_dict)
             st.success("✨ Theme successfully saved!")
