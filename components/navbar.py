@@ -227,7 +227,7 @@ def navbar(active_page="Home"):
     if active_page == "About":
         html_content += f"""
 <div class="full-bleed-banner hero-banner-bg" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
-<img src="data:image/png;base64,{transparent_logo_b64}" alt="Company Logo" style="width: 220px; height: auto; margin-bottom: 15px; object-fit: contain;">
+<img src="data:image/png;base64,{transparent_logo_b64}" alt="Company Logo" style="width: 350px; height: auto; margin-bottom: 15px; object-fit: contain;">
 <div class="hero-banner-title" style="color: {hero_text_color} !important; font-size: 36px !important;">{header_title}</div>
 </div>
 """
