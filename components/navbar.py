@@ -135,7 +135,7 @@ def navbar(active_page="Home"):
         /* Icons (Profile, Wishlist, Bag) */
         .myntra-icons {{
             display: flex;
-            gap: 25px;
+            gap: 32px;
             align-items: center;
             margin-left: auto;
         }}
@@ -188,8 +188,7 @@ def navbar(active_page="Home"):
         </div>
         <div class="myntra-icons">
             <a href="?studio=open" target="_self" class="myntra-icon-item">
-                <img src="data:image/png;base64,{theme_logo_b64}" style="width: 20px; height: 20px; margin-bottom: 5px; object-fit: contain;">
-                <span>Studio</span>
+                <img src="data:image/png;base64,{theme_logo_b64}" style="width: 40px; height: 40px; margin-bottom: 0; object-fit: contain;">
             </a>
             <a href="#" class="myntra-icon-item">
                 <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
