@@ -4,7 +4,7 @@ def navbar(active_page="Home"):
     from utils import get_image_base64
     logo_b64 = get_image_base64("assets/logo.png")
     theme_logo_b64 = get_image_base64("assets/theme_logo.png")
-    transparent_logo_b64 = get_image_base64("assets/transparent_logo.png")
+    transparent_logo_b64 = get_image_base64("assets/transparent_logo_small.png")
     
     # Generate the active class dynamically
     def is_active(page_name):
