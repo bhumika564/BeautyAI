@@ -188,7 +188,7 @@ def navbar(active_page="Home"):
         </div>
         <div class="myntra-icons">
             <a href="?studio=open" target="_self" class="myntra-icon-item">
-                <img src="data:image/png;base64,{theme_logo_b64}" style="width: 40px; height: 40px; margin-bottom: 0; object-fit: contain;">
+                <img src="data:image/png;base64,{theme_logo_b64}" style="width: 60px; height: 60px; margin-bottom: 0; object-fit: contain;">
             </a>
             <a href="#" class="myntra-icon-item">
                 <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
