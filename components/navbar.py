@@ -10,7 +10,7 @@ def navbar(active_page="Home"):
     def is_active(page_name):
         return "active" if active_page == page_name else ""
         
-html_content = f"""
+    html_content = f"""
 <style>
     /* Hide the native Streamlit header */
     header[data-testid="stHeader"] {{
