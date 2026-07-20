@@ -226,14 +226,14 @@ def navbar(active_page="Home"):
     if active_page == "About":
         html_content += f"""
 <div class="full-bleed-banner hero-banner-bg" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
-    <img src="data:image/png;base64,{logo_b64}" alt="Company Logo" style="height: 80px; width: auto; margin-bottom: 20px; object-fit: contain;">
-    <div class="hero-banner-title" style="color: {hero_text_color} !important; font-size: 32px !important;">{header_title}</div>
+<img src="data:image/png;base64,{logo_b64}" alt="Company Logo" style="height: 80px; width: auto; margin-bottom: 20px; object-fit: contain;">
+<div class="hero-banner-title" style="color: {hero_text_color} !important; font-size: 32px !important;">{header_title}</div>
 </div>
 """
     else:
         html_content += f"""
 <div class="full-bleed-banner hero-banner-bg">
-    <div class="hero-banner-title" style="color: {hero_text_color} !important;">{header_title}</div>
+<div class="hero-banner-title" style="color: {hero_text_color} !important;">{header_title}</div>
 </div>
 """
     
