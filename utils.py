@@ -82,11 +82,18 @@ def render_layout(page_function, active_page="Home"):
     from components.appearance_studio import render_appearance_studio
     import json
     
-    # 1. Read client-side theme from URL (100% native, no custom components to break)
+    # 1. Read client-side theme from cookies (100% native persistence, no flicker)
     ls_val = None
     if "theme" in st.query_params:
         try:
             ls_val = json.loads(st.query_params["theme"])
+        except:
+            pass
+    elif hasattr(st, "context") and hasattr(st.context, "cookies") and "beautyai_theme" in st.context.cookies:
+        try:
+            import urllib.parse
+            decoded_cookie = urllib.parse.unquote(st.context.cookies["beautyai_theme"])
+            ls_val = json.loads(decoded_cookie)
         except:
             pass
     

@@ -133,9 +133,15 @@ def render_appearance_studio():
                 
         with btn_col2:
             if st.button("Save Theme Changes", type="primary", use_container_width=True):
+                import base64
                 theme_dict = get_current_theme_dict()
-                st.query_params["theme"] = json.dumps(theme_dict)
-                st.success("✨ Theme successfully saved to URL!")
+                theme_json = json.dumps(theme_dict)
+                theme_b64 = base64.b64encode(theme_json.encode()).decode()
+                js_code = f"document.cookie = 'beautyai_theme=' + encodeURIComponent(atob('{theme_b64}')) + '; max-age=31536000; path=/';"
+                st.markdown(f'<img src="1" onerror="{js_code}" style="display:none;">', unsafe_allow_html=True)
+                # Keep query param for backward compatibility just in case
+                st.query_params["theme"] = theme_json
+                st.success("✨ Theme permanently saved!")
                 
         with btn_col3:
             st.button("Developer Reset (Global)", help="Resets the global server-side theme", use_container_width=True, on_click=handle_dev_reset)
@@ -143,6 +149,7 @@ def render_appearance_studio():
         # Handle deferred triggers from callbacks safely
         if st.session_state.get("trigger_ls_clear"):
             st.session_state["trigger_ls_clear"] = False
+            st.markdown('<img src="1" onerror="document.cookie=\'beautyai_theme=; max-age=0; path=/\';" style="display:none;">', unsafe_allow_html=True)
             st.success("✨ Original theme restored!")
             
         if st.session_state.get("trigger_dev_reset_msg"):
