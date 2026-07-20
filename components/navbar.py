@@ -4,6 +4,7 @@ def navbar(active_page="Home"):
     from utils import get_image_base64
     logo_b64 = get_image_base64("assets/logo.png")
     theme_logo_b64 = get_image_base64("assets/theme_logo.png")
+    transparent_logo_b64 = get_image_base64("assets/transparent_logo.png")
     
     # Generate the active class dynamically
     def is_active(page_name):
@@ -226,8 +227,8 @@ def navbar(active_page="Home"):
     if active_page == "About":
         html_content += f"""
 <div class="full-bleed-banner hero-banner-bg" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
-<img src="data:image/png;base64,{logo_b64}" alt="Company Logo" style="height: 80px; width: auto; margin-bottom: 20px; object-fit: contain;">
-<div class="hero-banner-title" style="color: {hero_text_color} !important; font-size: 32px !important;">{header_title}</div>
+<img src="data:image/png;base64,{transparent_logo_b64}" alt="Company Logo" style="height: 160px; width: auto; margin-bottom: 20px; object-fit: contain;">
+<div class="hero-banner-title" style="color: {hero_text_color} !important; font-size: 24px !important;">{header_title}</div>
 </div>
 """
     else:
