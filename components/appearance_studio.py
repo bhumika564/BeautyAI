@@ -57,7 +57,17 @@ def render_appearance_studio():
     
 
     
-    with st.expander("✨ Appearance Studio (Live Theme Editor)", expanded=False):
+    if st.query_params.get("studio") != "open":
+        return
+
+    with st.container():
+        col_title, col_close = st.columns([0.85, 0.15])
+        with col_title:
+            st.markdown("### ✨ Appearance Studio (Live Theme Editor)")
+        with col_close:
+            if st.button("❌ Close", key="close_studio"):
+                del st.query_params["studio"]
+                st.rerun()
         st.markdown(
             """
             <p style="font-size: 13px; color: var(--text-light); margin-bottom: 24px;">

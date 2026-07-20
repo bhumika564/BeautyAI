@@ -3,6 +3,7 @@ import streamlit as st
 def navbar(active_page="Home"):
     from utils import get_image_base64
     logo_b64 = get_image_base64("assets/logo.png")
+    theme_logo_b64 = get_image_base64("assets/theme_logo.png")
     
     # Generate the active class dynamically
     def is_active(page_name):
@@ -186,6 +187,10 @@ def navbar(active_page="Home"):
             <input type="text" placeholder="Search for products, brands and more">
         </div>
         <div class="myntra-icons">
+            <a href="?studio=open" target="_self" class="myntra-icon-item">
+                <img src="data:image/png;base64,{theme_logo_b64}" style="width: 20px; height: 20px; margin-bottom: 5px; object-fit: contain;">
+                <span>Studio</span>
+            </a>
             <a href="#" class="myntra-icon-item">
                 <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
                 <span>Profile</span>
